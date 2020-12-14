@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Data;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -24,6 +25,11 @@ namespace Underwatch.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
+        public DbSet<Game> Games { get; set; }
+        public DbSet<News> News { get; set; }
+        public DbSet<FavoritesList> FavoriteLists { get; set; }
+
 
         public static ApplicationDbContext Create()
         {
