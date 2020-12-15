@@ -9,8 +9,10 @@ C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\bin\Debug\EntityFramework.
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\bin\Debug\EntityFramework.SqlServer.xml
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.csprojAssemblyReference.cache
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.csproj.CoreCompileInputs.cache
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.csproj.CopyComplete
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.dll
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.pdb
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.csprojAssemblyReference.cache
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.Migrations.first.resources
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.csproj.GenerateResource.cache

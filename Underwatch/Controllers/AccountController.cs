@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using Underwatch.Data;
 using Underwatch.Models;
 
 namespace Underwatch.Controllers
