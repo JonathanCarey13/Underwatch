@@ -1,0 +1,6 @@
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Models\bin\Debug\Models.dll
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Models\bin\Debug\Models.pdb
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Models\obj\Debug\Models.csprojAssemblyReference.cache
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Models\obj\Debug\Models.dll
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Models\obj\Debug\Models.pdb

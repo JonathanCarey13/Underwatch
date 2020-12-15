@@ -1,0 +1,6 @@
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Services\bin\Debug\Services.dll
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Services\bin\Debug\Services.pdb
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Services\obj\Debug\Services.csprojAssemblyReference.cache
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Services\obj\Debug\Services.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Services\obj\Debug\Services.dll
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Services\obj\Debug\Services.pdb
