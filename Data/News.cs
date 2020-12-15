@@ -14,7 +14,7 @@ namespace Data
         public int NewsId { get; set; }
         [ForeignKey(nameof(Game))]
         public int GameId { get; set; }
-        virtual public Game Game { get; set; }
+        public virtual Game Game { get; set; }
         public bool IsDLC { get; set; }
         public bool IsUpdate { get; set; }
         public bool UpdateTitle { get; set; }

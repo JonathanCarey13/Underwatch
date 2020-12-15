@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Underwatch.Models;
 
 namespace Data
 {
@@ -14,13 +15,13 @@ namespace Data
         public int ListId { get; set; }
         [ForeignKey(nameof(User))]
         public int UserId { get; set; }
-        virtual public User User { get; set; }
+        public virtual ApplicationUser User { get; set; }
         [ForeignKey(nameof(Game))]
         public int GameId { get; set; }
-        virtual public Game Game { get; set; }
+        public virtual Game Game { get; set; }
         [ForeignKey(nameof(News))]
         public int NewsId { get; set; }
-        virtual public News News { get; set; }
+        public virtual News News { get; set; }
 
     }
 }
