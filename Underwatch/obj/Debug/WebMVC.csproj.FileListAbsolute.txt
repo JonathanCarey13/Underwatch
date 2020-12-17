@@ -55,7 +55,6 @@ C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\Microsoft.Web.In
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\Models.dll
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\Newtonsoft.Json.dll
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\Owin.dll
-C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\Services.dll
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\System.Web.Helpers.dll
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\System.Web.Mvc.dll
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\System.Web.Optimization.dll
@@ -67,7 +66,6 @@ C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\WebGrease.dll
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\Data.pdb
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\Data.dll.config
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\Models.pdb
-C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\Services.pdb
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\EntityFramework.xml
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\EntityFramework.SqlServer.xml
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
@@ -93,4 +91,6 @@ C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\Microsoft.AspNet
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\obj\Debug\WebMVC.csproj.CopyComplete
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\Models.dll.config
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\Services.dll
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\Services.pdb
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Underwatch\bin\Services.dll.config

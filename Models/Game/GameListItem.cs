@@ -5,21 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data
+namespace Models
 {
-    public class Game
+    public class GameListItem
     {
-        [Key]
         public int GameId { get; set; }
-        [Required]
+        [Display(Name = "Game Title")]
         public string Title { get; set; }
         public string Genre { get; set; }
         public DateTime ReleaseDate { get; set; }
+        [Display(Name="Is it Released?")]
         public bool IsReleased { get; set; }
+        [Display(Name = "Is it still Early Access?")]
         public bool EarlyAccess { get; set; }
+        [Display(Name = "Game Website Link")]
         public Uri GameWebsite { get; set; }
+        [Display(Name = "Do you own it?")]
         public bool IsOwned { get; set; }
-        [Required]
-        public Guid OwnerId { get; set; }
     }
 }

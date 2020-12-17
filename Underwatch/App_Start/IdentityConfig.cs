@@ -50,14 +50,14 @@ namespace Underwatch
                 RequireUniqueEmail = true
             };
 
-            // Configure validation logic for passwords
+            // Configure validation logic for passwords                      // Changed the bools to false
             manager.PasswordValidator = new PasswordValidator
             {
-                RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
-                RequireDigit = true,
-                RequireLowercase = true,
-                RequireUppercase = true,
+                RequiredLength = 4,                                         // Changed from 6 to make easier
+                RequireNonLetterOrDigit = false,
+                RequireDigit = false,                                       // See AccountViewModels 73, 92 and ManageViewModels 31, 50
+                RequireLowercase = false,
+                RequireUppercase = false,
             };
 
             // Configure user lockout defaults

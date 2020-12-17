@@ -37,9 +37,8 @@ namespace Underwatch.Data
         }
 
         public DbSet<Game> Games { get; set; }
-        public DbSet<News> News { get; set; }
+        public DbSet<News> News_s { get; set; }
         public DbSet<FavoritesList> FavoriteLists { get; set; }
-        public DbSet<ApplicationUser> AspNetUsers { get; set; }
 
         public static ApplicationDbContext Create()
         {
@@ -59,7 +58,7 @@ namespace Underwatch.Data
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
 
-            //// This is the cascade solution I found, no idea if it works
+            //// This is the cascade solution I found, but I don't think it would help
             //modelBuilder.Entity<News>()
             //.HasOptional<Game>(s => s.Game)
             //.WithMany()

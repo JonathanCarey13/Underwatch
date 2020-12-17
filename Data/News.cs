@@ -20,5 +20,7 @@ namespace Data
         public bool UpdateTitle { get; set; }
         public string Description { get; set; }
         public DateTime UpdateReleaseDate { get; set; }
+        [Required]
+        public Guid OwnerId { get; set; }
     }
 }
