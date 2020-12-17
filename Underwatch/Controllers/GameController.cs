@@ -12,7 +12,7 @@ using Underwatch.Data;
 
 namespace Underwatch.Controllers
 {
-    /*[Authorize]*/     // This allows for only logged in users to access this, I'll need to uncomment it out later
+    [Authorize]     // This allows for only logged in users to access this, I'll need to uncomment it out later
     public class GameController : Controller
     {
         //private ApplicationDbContext _db = new ApplicationDbContext();        //This is also part of the GeneralStoreMVC

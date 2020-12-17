@@ -14,7 +14,5 @@ C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.csproj.Copy
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.dll
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.pdb
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.csprojAssemblyReference.cache
-C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.Migrations.wellletssee.resources
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.Migrations.firstwithuserguidadded.resources
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.csproj.GenerateResource.cache
-C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.Migrations.noreferences.resources
-C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.Migrations.addeduserstuff.resources

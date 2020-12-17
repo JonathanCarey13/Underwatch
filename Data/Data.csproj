@@ -60,17 +60,9 @@
     <Compile Include="FavoritesList.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202012170049294_well lets see.cs" />
-    <Compile Include="Migrations\202012170049294_well lets see.designer.cs">
-      <DependentUpon>202012170049294_well lets see.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012170300474_no references.cs" />
-    <Compile Include="Migrations\202012170300474_no references.designer.cs">
-      <DependentUpon>202012170300474_no references.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012170339394_added user stuff.cs" />
-    <Compile Include="Migrations\202012170339394_added user stuff.designer.cs">
-      <DependentUpon>202012170339394_added user stuff.cs</DependentUpon>
+    <Compile Include="Migrations\202012170403370_first with user guid added.cs" />
+    <Compile Include="Migrations\202012170403370_first with user guid added.designer.cs">
+      <DependentUpon>202012170403370_first with user guid added.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="News.cs" />
@@ -81,14 +73,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202012170049294_well lets see.resx">
-      <DependentUpon>202012170049294_well lets see.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012170300474_no references.resx">
-      <DependentUpon>202012170300474_no references.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012170339394_added user stuff.resx">
-      <DependentUpon>202012170339394_added user stuff.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012170403370_first with user guid added.resx">
+      <DependentUpon>202012170403370_first with user guid added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
