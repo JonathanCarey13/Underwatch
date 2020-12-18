@@ -60,9 +60,13 @@
     <Compile Include="FavoritesList.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202012170403370_first with user guid added.cs" />
-    <Compile Include="Migrations\202012170403370_first with user guid added.designer.cs">
-      <DependentUpon>202012170403370_first with user guid added.cs</DependentUpon>
+    <Compile Include="Migrations\202012172308361_user problem fix 1.cs" />
+    <Compile Include="Migrations\202012172308361_user problem fix 1.designer.cs">
+      <DependentUpon>202012172308361_user problem fix 1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012172358559_user problem fixed.cs" />
+    <Compile Include="Migrations\202012172358559_user problem fixed.designer.cs">
+      <DependentUpon>202012172358559_user problem fixed.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="News.cs" />
@@ -73,8 +77,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202012170403370_first with user guid added.resx">
-      <DependentUpon>202012170403370_first with user guid added.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012172308361_user problem fix 1.resx">
+      <DependentUpon>202012172308361_user problem fix 1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012172358559_user problem fixed.resx">
+      <DependentUpon>202012172358559_user problem fixed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

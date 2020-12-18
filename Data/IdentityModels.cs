@@ -46,7 +46,6 @@ namespace Underwatch.Data
 
         }
 
-        // From here down, I have no idea why the Eleven Note guide asked us to do this, I need to ask or look into this
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
@@ -57,13 +56,6 @@ namespace Underwatch.Data
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
-
-            //// This is the cascade solution I found, but I don't think it would help
-            //modelBuilder.Entity<News>()
-            //.HasOptional<Game>(s => s.Game)
-            //.WithMany()
-            //.WillCascadeOnDelete(false);
-
         }
     }
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>

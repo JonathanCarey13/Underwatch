@@ -17,7 +17,7 @@ namespace Data
         public DateTime ReleaseDate { get; set; }
         public bool IsReleased { get; set; }
         public bool EarlyAccess { get; set; }
-        public Uri GameWebsite { get; set; }
+        public string GameWebsite { get; set; }
         public bool IsOwned { get; set; }
         [Required]
         public Guid OwnerId { get; set; }

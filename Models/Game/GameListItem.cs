@@ -19,7 +19,7 @@ namespace Models
         [Display(Name = "Is it still Early Access?")]
         public bool EarlyAccess { get; set; }
         [Display(Name = "Game Website Link")]
-        public Uri GameWebsite { get; set; }
+        public string GameWebsite { get; set; }
         [Display(Name = "Do you own it?")]
         public bool IsOwned { get; set; }
     }

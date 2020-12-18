@@ -20,7 +20,7 @@ namespace Models.Game
         public bool IsReleased { get; set; }
         public bool EarlyAccess { get; set; }
         [Url]
-        public Uri GameWebsite { get; set; }
+        public string GameWebsite { get; set; }
         public bool IsOwned { get; set; }
     }
 }
