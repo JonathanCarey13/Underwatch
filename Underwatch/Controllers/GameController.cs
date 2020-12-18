@@ -46,19 +46,39 @@ namespace Underwatch.Controllers
             if (!ModelState.IsValid)
             {
                 return View(model);
-
             }
 
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new GameService(userId);
+            var service = CreateGameService();
 
-            service.CreateGame(model);
+            if (service.CreateGame(model))
+            {
+                TempData["SaveResult"] = "Your game was created!";
+                return RedirectToAction("Index");
+            }
 
-            return RedirectToAction("Index");
+            ModelState.AddModelError("", "Something went wrong! The game couldn't be made.");
 
+            return View(model);
         }
 
+        // Get: Game/Details
+        public ActionResult Details(int id)
+        {
+            var service = CreateGameService();
+            var model = service.GetGameById(id);
 
+            return View(model);
+        }
+
+        private GameService CreateGameService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new GameService(userId);
+            return service;
+        }
+
+        
+        
 
 
 

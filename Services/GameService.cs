@@ -67,5 +67,30 @@ namespace Services
                 return query.ToArray();
             }
         }
+
+        public GameDetail GetGameById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Games
+                        .Single(e => e.GameId == id && e.OwnerId == _userId);
+                return
+                    new GameDetail
+                    {
+                        GameId = entity.GameId,
+                        Title = entity.Title,
+                        Genre = entity.Genre,
+                        ReleaseDate = entity.ReleaseDate,
+                        IsReleased = entity.IsReleased,
+                        EarlyAccess = entity.EarlyAccess,
+                        GameWebsite = entity.GameWebsite,
+                        IsOwned = entity.IsOwned,
+                    };
+            }
+        }
+
+
     }
 }

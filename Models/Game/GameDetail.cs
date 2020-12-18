@@ -7,19 +7,20 @@ using System.Threading.Tasks;
 
 namespace Models.Game
 {
-    public class GameCreate
+    public class GameDetail
     {
-        [Required]
-        [MinLength(1, ErrorMessage = "Please enter at least 1 characters.")]
-        [MaxLength(50, ErrorMessage = "There are too many characters in this field.")]
+        public int GameId { get; set; }
+        [Display(Name = "Game Title")]
         public string Title { get; set; }
-        [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
-        [MaxLength(50, ErrorMessage = "There are too many characters in this field.")]
         public string Genre { get; set; }
         public DateTime ReleaseDate { get; set; }
+        [Display(Name = "Is it Released?")]
         public bool IsReleased { get; set; }
+        [Display(Name = "Is it still Early Access?")]
         public bool EarlyAccess { get; set; }
+        [Display(Name = "Game Website Link")]
         public string GameWebsite { get; set; }
+        [Display(Name = "Do you own it?")]
         public bool IsOwned { get; set; }
     }
 }
