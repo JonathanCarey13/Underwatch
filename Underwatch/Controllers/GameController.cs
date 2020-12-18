@@ -118,6 +118,32 @@ namespace Underwatch.Controllers
             return View(model);
         }
 
+        // Get: Game/Delete
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var service = CreateGameService();
+            var model = service.GetGameById(id);
+
+            return View(model);
+        }
+
+        // Post: Game/Delete
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateGameService();
+
+            service.DeleteGame(id);
+
+            TempData["SaveResult"] = "Your game was obliterated";
+
+            return RedirectToAction("Index");
+        }
+
+
         private GameService CreateGameService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
