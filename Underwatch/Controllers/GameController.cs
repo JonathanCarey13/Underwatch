@@ -70,6 +70,54 @@ namespace Underwatch.Controllers
             return View(model);
         }
 
+        // Get: Game/Edit
+        public ActionResult Edit(int id)
+        {
+            var service = CreateGameService();
+            var detail = service.GetGameById(id);
+            var model =
+                new GameEdit
+                {
+                    GameId = detail.GameId,
+                    Title = detail.Title,
+                    Genre = detail.Genre,
+                    ReleaseDate = detail.ReleaseDate,
+                    IsReleased = detail.IsReleased,
+                    EarlyAccess = detail.EarlyAccess,
+                    GameWebsite = detail.GameWebsite,
+                    IsOwned = detail.IsOwned,
+                };
+            return View(model);
+        }
+
+        // Post: Game/Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, GameEdit model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            if (model.GameId != id)
+            {
+                ModelState.AddModelError("", "Id does not match");
+                return View(model);
+            }
+
+            var service = CreateGameService();
+
+            if (service.UpdateGame(model))
+            {
+                TempData["SaveResult"] = "Your game was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your game could not be updated.");
+            return View(model);
+        }
+
         private GameService CreateGameService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
@@ -79,8 +127,6 @@ namespace Underwatch.Controllers
 
         
         
-
-
 
     }
 }

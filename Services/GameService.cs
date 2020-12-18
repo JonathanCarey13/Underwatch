@@ -91,6 +91,28 @@ namespace Services
             }
         }
 
+        public bool UpdateGame(GameEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Games
+                        .Single(e => e.GameId == model.GameId && e.OwnerId == _userId);
+
+                entity.Title = model.Title;
+                entity.Genre = model.Genre;
+                entity.ReleaseDate = model.ReleaseDate;
+                entity.IsReleased = model.IsReleased;
+                entity.EarlyAccess = model.EarlyAccess;
+                entity.GameWebsite = model.GameWebsite;
+                entity.IsOwned = model.IsOwned;
+
+                return ctx.SaveChanges() == 1;
+            }
+
+        }
+
 
     }
 }
