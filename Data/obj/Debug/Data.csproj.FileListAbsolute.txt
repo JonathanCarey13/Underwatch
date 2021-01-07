@@ -17,3 +17,4 @@ C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.Migrations.
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.csproj.GenerateResource.cache
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.Migrations.userproblemfixed.resources
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.Migrations.addeddropdown.resources
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Data\obj\Debug\Data.csprojAssemblyReference.cache

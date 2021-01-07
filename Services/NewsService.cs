@@ -103,7 +103,20 @@ namespace Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public bool DeleteNews(int newsId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .News_s
+                        .Single(e => e.NewsId == newsId && e.OwnerId == _userId);
 
+                ctx.News_s.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
 
     }
 }

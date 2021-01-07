@@ -113,10 +113,28 @@ namespace Underwatch.Controllers
             return View(model);
         }
 
+        // Get: News/Delete/{id}
+        public ActionResult Delete(int id)
+        {
+            var service = CreateNewsService();
+            var model = service.GetNewsById(id);
 
+            return View(model);
+        }
 
+        // Post: News/Delete/{id}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("Delete")]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateNewsService();
+            service.DeleteNews(id);
 
+            TempData["SaveResult"] = "Your news was deleted";
 
+            return RedirectToAction("Index");
+        }
 
         private NewsService CreateNewsService()
         {

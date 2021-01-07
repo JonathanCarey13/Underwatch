@@ -138,7 +138,7 @@ namespace Underwatch.Controllers
 
             service.DeleteGame(id);
 
-            TempData["SaveResult"] = "Your game was obliterated";
+            TempData["SaveResult"] = "Your game was deleted";
 
             return RedirectToAction("Index");
         }
