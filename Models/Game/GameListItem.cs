@@ -14,7 +14,7 @@ namespace Models
         public string Title { get; set; }
         public string Genre { get; set; }
         public DateTime ReleaseDate { get; set; }
-        [Display(Name="Is it Released?")]
+        [Display(Name = "Is it Released?")]
         public bool IsReleased { get; set; }
         [Display(Name = "Is it still Early Access?")]
         public bool EarlyAccess { get; set; }

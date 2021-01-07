@@ -70,7 +70,7 @@ namespace Underwatch.Controllers
             return View(model);
         }
 
-        // Get: Game/Edit
+        // Get: Game/Edit/{id}
         public ActionResult Edit(int id)
         {
             var service = CreateGameService();
@@ -142,17 +142,11 @@ namespace Underwatch.Controllers
 
             return RedirectToAction("Index");
         }
-
-
         private GameService CreateGameService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new GameService(userId);
             return service;
         }
-
-        
-        
-
     }
 }

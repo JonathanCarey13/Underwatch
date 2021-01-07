@@ -18,7 +18,7 @@
                     })
                 .PrimaryKey(t => t.ListId)
                 .ForeignKey("dbo.Game", t => t.GameId, cascadeDelete: false)
-                .ForeignKey("dbo.News", t => t.NewsId, cascadeDelete: true)
+                .ForeignKey("dbo.News", t => t.NewsId, cascadeDelete: false)
                 .Index(t => t.GameId)
                 .Index(t => t.NewsId);
             
@@ -51,7 +51,7 @@
                         OwnerId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.NewsId)
-                .ForeignKey("dbo.Game", t => t.GameId, cascadeDelete: true)
+                .ForeignKey("dbo.Game", t => t.GameId, cascadeDelete: false)
                 .Index(t => t.GameId);
             
             CreateTable(

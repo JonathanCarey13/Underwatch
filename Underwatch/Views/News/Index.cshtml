@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Models.News.NewsListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GameId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsDLC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsUpdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateReleaseDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsDLC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsUpdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateReleaseDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.NewsId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.NewsId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.NewsId })
+        </td>
+    </tr>
+}
+
+</table>

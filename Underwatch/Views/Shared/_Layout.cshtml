@@ -27,6 +27,7 @@
                     @if (User.Identity.IsAuthenticated)                             // This will display only if the user is logged in
                     {
                     <li>@Html.ActionLink("Games List", "Index", "Game")</li>
+                    <li>@Html.ActionLink("News List", "Index", "News")</li>
                   }
                 </ul>
                 @Html.Partial("_LoginPartial")

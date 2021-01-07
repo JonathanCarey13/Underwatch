@@ -17,7 +17,7 @@ namespace Data
         public virtual Game Game { get; set; }
         public bool IsDLC { get; set; }
         public bool IsUpdate { get; set; }
-        public bool UpdateTitle { get; set; }
+        public string UpdateTitle { get; set; }
         public string Description { get; set; }
         public DateTime UpdateReleaseDate { get; set; }
         [Required]

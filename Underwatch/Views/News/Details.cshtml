@@ -1,0 +1,66 @@
+﻿@model Models.News.NewsDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NewsDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GameId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDLC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDLC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsUpdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsUpdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateReleaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateReleaseDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
