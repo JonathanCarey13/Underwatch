@@ -72,6 +72,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FavoritesList\CreateFavoritesListViewModel.cs" />
+    <Compile Include="FavoritesList\FavoritesCreate.cs" />
+    <Compile Include="FavoritesList\FavoritesDetails.cs" />
+    <Compile Include="FavoritesList\FavoritesEdit.cs" />
+    <Compile Include="FavoritesList\FavoritesListItem.cs" />
     <Compile Include="Game\GameCreate.cs" />
     <Compile Include="Game\GameDetail.cs" />
     <Compile Include="Game\GameEdit.cs" />

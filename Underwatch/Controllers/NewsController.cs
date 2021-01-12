@@ -25,7 +25,6 @@ namespace Underwatch.Controllers
             return View(model);
         }
 
-        // ViewData/ViewBags
         // Get: News/Create
         public ActionResult Create()
         {
@@ -60,7 +59,7 @@ namespace Underwatch.Controllers
             return RedirectToAction("Index");
         }
 
-        // Get: News/Details
+        // Get: News/Details/{id}
         public ActionResult Details(int id)
         {
             var service = CreateNewsService();

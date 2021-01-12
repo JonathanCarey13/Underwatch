@@ -1,0 +1,33 @@
+﻿@model Models.FavoritesList.FavoritesDetails
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FavoritesDetails</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GameId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewsId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewsId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

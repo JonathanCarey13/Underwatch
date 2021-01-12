@@ -132,7 +132,7 @@ namespace Underwatch.Controllers
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeletePost(int id)
+        public ActionResult DeleteGame(int id)
         {
             var service = CreateGameService();
 
