@@ -7,74 +7,58 @@
 <h2>Details</h2>
 
 <div>
-    <h4>GameDetail</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.GameId)
-        </dt>
+    <table class="table">
+        <tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.GameId)
-        </dd>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsReleased)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EarlyAccess)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GameWebsite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsOwned)
+            </th>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.IsReleased)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.EarlyAccess)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.GameWebsite)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.IsOwned)
+            </td>
+        </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Genre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Genre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ReleaseDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ReleaseDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsReleased)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsReleased)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EarlyAccess)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EarlyAccess)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.GameWebsite)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GameWebsite)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsOwned)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsOwned)
-        </dd>
-
-    </dl>
+    </table>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.GameId }) |

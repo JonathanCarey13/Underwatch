@@ -10,9 +10,11 @@ namespace Models.Game
     public class GameDetail
     {
         public int GameId { get; set; }
-        [Display(Name = "Game Title")]
+        [Display(Name = "Game")]
         public string Title { get; set; }
         public string Genre { get; set; }
+        [Display(Name ="Release Date")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/yyyy}")]
         public DateTime ReleaseDate { get; set; }
         [Display(Name = "Is it Released?")]
         public bool IsReleased { get; set; }

@@ -21,10 +21,8 @@
     </div>
 }
 <table class="table">
+    <style type="text/css">.table th, .table td {text-align: center;}</style>
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.GameId)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
@@ -38,13 +36,7 @@
             @Html.DisplayNameFor(model => model.IsReleased)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EarlyAccess)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.IsOwned)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GameWebsite)
         </th>
         <th></th>
     </tr>
@@ -52,9 +44,6 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.GameId)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
@@ -68,13 +57,7 @@
                 @Html.DisplayFor(modelItem => item.IsReleased)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EarlyAccess)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.IsOwned)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GameWebsite)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.GameId }) |

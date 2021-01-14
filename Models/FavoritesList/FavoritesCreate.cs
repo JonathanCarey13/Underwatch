@@ -1,5 +1,4 @@
-﻿using Models.News;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -14,9 +13,9 @@ namespace Models.FavoritesList
         public int ListId { get; set; }
         [ForeignKey(nameof(Game))]
         public int GameId { get; set; }
-        public virtual GameListItem Game { get; set; }
+        public virtual CreateFavoritesListViewModel Game { get; set; }
         [ForeignKey(nameof(News))]
         public int NewsId { get; set; }
-        public virtual NewsListItem News { get; set; }
+        public virtual CreateFavoritesListViewModel News { get; set; }
     }
 }

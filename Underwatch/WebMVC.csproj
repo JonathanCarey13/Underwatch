@@ -348,7 +348,6 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Game\Index.cshtml" />
     <Content Include="Views\Game\Create.cshtml" />
-    <Content Include="Views\Game\Details.cshtml" />
     <Content Include="Views\Game\Edit.cshtml" />
     <Content Include="Views\Game\Delete.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
@@ -358,8 +357,10 @@
     <Content Include="Views\News\Delete.cshtml" />
     <Content Include="Views\FavoritesList\Index.cshtml" />
     <Content Include="Views\FavoritesList\Create.cshtml" />
-    <Content Include="Views\FavoritesList\Details.cshtml" />
     <Content Include="Views\FavoritesList\Edit.cshtml" />
+    <Content Include="Views\FavoritesList\Details.cshtml" />
+    <Content Include="Views\Game\Details.cshtml" />
+    <Content Include="Views\Game\DetailsTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,63 @@
+﻿@*@model Models.Game.GameDetail
+
+@{
+    ViewBag.Title = "Detailsasdf";
+}
+
+<h2>Details</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsReleased)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EarlyAccess)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameWebsite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsOwned)
+        </th>
+        <th></th>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReleaseDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsReleased)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EarlyAccess)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameWebsite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsOwned)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.GameId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </td>
+    </tr>
+}
+
+</table>*@

@@ -10,6 +10,15 @@
     <h4>FavoritesDetails</h4>
     <hr />
     <dl class="dl-horizontal">
+        @Html.Hidden("ListId", Model.ListId)
+        <dt>
+            @Html.DisplayNameFor(model => model.ListId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ListId)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.GameId)
         </dt>
@@ -29,5 +38,6 @@
     </dl>
 </div>
 <p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ListId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
