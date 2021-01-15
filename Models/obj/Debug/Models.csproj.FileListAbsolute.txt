@@ -23,3 +23,10 @@ C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Models\bin\Debug\System.Web.Web
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Models\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Models\bin\Debug\System.Web.WebPages.Razor.xml
 C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Models\obj\Debug\Models.csprojAssemblyReference.cache
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Models\bin\Debug\Data.dll
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Models\bin\Debug\Data.pdb
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Models\bin\Debug\Data.dll.config
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\ElevenFiftyProjects\DotNetProjects\Underwatch\Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml

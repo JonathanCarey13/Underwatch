@@ -14,7 +14,7 @@ namespace Models.News
         [Display(Name = "Game Title")]
         [ForeignKey(nameof(Game))]
         public int GameId { get; set; }
-        public virtual GameListItem Game { get; set; }      // I'm not sure why I'd want GameListItem and not Game, (it recommended this) something to look into later
+        public virtual GameListItem Game { get; set; }
         [Display(Name = "DLC")]
         public bool IsDLC { get; set; }
         [Display(Name = "Free Content Update")]

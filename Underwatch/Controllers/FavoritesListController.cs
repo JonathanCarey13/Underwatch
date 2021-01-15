@@ -1,5 +1,4 @@
-﻿using Data;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Models.FavoritesList;
 using Services;
 using System;
@@ -45,8 +44,8 @@ namespace Underwatch.Controllers
         }
 
         // Post: FavoritesList/Create
-       [HttpPost]
-       [ValidateAntiForgeryToken]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(CreateFavoritesListViewModel viewModel)
         {
             if (!ModelState.IsValid)
@@ -56,12 +55,12 @@ namespace Underwatch.Controllers
 
             viewModel.Games = _db.Games.Select(c => new SelectListItem
             {
-                Text = c.Title,
+                Text = c.Title.ToString(),
                 Value = c.GameId.ToString()
             });
             viewModel.News_s = _db.News_s.Select(c => new SelectListItem
             {
-                Text = c.UpdateTitle,
+                Text = c.UpdateTitle.ToString(),
                 Value = c.NewsId.ToString()
             });
 
@@ -72,7 +71,7 @@ namespace Underwatch.Controllers
 
             return RedirectToAction("Index");
         }
-        
+
         // Get: FavoritesList/Details/{id}
         public ActionResult Details(int id)
         {
@@ -87,13 +86,27 @@ namespace Underwatch.Controllers
         {
             var service = CreateFavoritesService();
             var detail = service.GetFavoritesById(id);
-            var model =
-                new FavoritesEdit
-                {
-                    ListId = detail.ListId,
-                    NewsId = detail.NewsId,
-                    GameId = detail.GameId
-                };
+            var model = new FavoritesEdit();
+
+            model.Games = _db.Games.Select(c => new SelectListItem
+            {
+                Text = c.Title.ToString(),
+                Value = c.GameId.ToString()
+            });
+            model.News_s = _db.News_s.Select(c => new SelectListItem
+            {
+                Text = c.UpdateTitle.ToString(),
+                Value = c.NewsId.ToString()
+            });
+
+                //new FavoritesEdit
+                //{
+                //    ListId = detail.ListId,
+                //    NewsId = detail.NewsId,
+                //    GameId = detail.GameId,
+                //    Title = detail.Title,
+                //    UpdateTitle = detail.UpdateTitle
+                //};
 
             return View(model);
         }
@@ -134,6 +147,7 @@ namespace Underwatch.Controllers
 
         // Post: FavoritesList/Delete/{id}
         [HttpPost]
+        [ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteFavorite(int id)
         {

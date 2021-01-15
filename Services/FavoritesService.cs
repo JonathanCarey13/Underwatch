@@ -31,7 +31,7 @@ namespace Services
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.FavoriteLists.Add(entity);
-                return ctx.SaveChanges() == 1;              // Double check here
+                return ctx.SaveChanges() == 1;
             }
         }
 
@@ -50,7 +50,9 @@ namespace Services
                                     {
                                         ListId = e.ListId,
                                         NewsId = e.NewsId,
-                                        GameId = e.GameId
+                                        GameId = e.GameId,
+                                        Title = e.Game.Title,
+                                        UpdateTitle = e.News.UpdateTitle
                                     }
                             );
 
@@ -71,7 +73,9 @@ namespace Services
                     {
                         ListId = entity.ListId,
                         NewsId = entity.NewsId,
-                        GameId = entity.GameId
+                        GameId = entity.GameId,
+                        Title = entity.Game.Title,
+                        UpdateTitle = entity.News.UpdateTitle
                     };
             }
         }
@@ -87,6 +91,8 @@ namespace Services
 
                 entity.NewsId = model.NewsId;
                 entity.GameId = model.GameId;
+                //entity.Game.Title = model.Title;
+                //entity.News.UpdateTitle = model.UpdateTitle;
 
                 return ctx.SaveChanges() == 1;
 

@@ -11,22 +11,34 @@
 </p>
 <table class="table">
     <tr>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.GameId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NewsId)
+            @Html.DisplayNameFor(model => model.News.UpdateTitle)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateTitle)
+        </th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.GameId)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.NewsId)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateTitle)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ListId }) |

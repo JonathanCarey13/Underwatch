@@ -10,29 +10,20 @@
     <h4>FavoritesDetails</h4>
     <hr />
     <dl class="dl-horizontal">
-        @Html.Hidden("ListId", Model.ListId)
         <dt>
-            @Html.DisplayNameFor(model => model.ListId)
+            @Html.DisplayNameFor(model => model.Title)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ListId)
+            @Html.DisplayFor(model => model.Title)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.GameId)
+            @Html.DisplayNameFor(model => model.UpdateTitle)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.GameId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NewsId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NewsId)
+            @Html.DisplayFor(model => model.UpdateTitle)
         </dd>
 
     </dl>
