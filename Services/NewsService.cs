@@ -94,6 +94,7 @@ namespace Services
                         .News_s
                         .Single(e => e.NewsId == model.NewsId && e.OwnerId == _userId);
 
+                entity.GameId = model.GameId;
                 entity.UpdateTitle = model.UpdateTitle;
                 entity.Description = model.Description;
                 entity.IsDLC = model.IsDLC;

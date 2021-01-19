@@ -113,6 +113,7 @@ namespace Underwatch.Controllers
 
         // Post: Favorites/Edit/{id}
         [HttpPost]
+        [ActionName("Edit")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, FavoritesEdit model)
         {
@@ -123,6 +124,17 @@ namespace Underwatch.Controllers
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
+
+            model.Games = _db.Games.Select(c => new SelectListItem
+            {
+                Text = c.Title.ToString(),
+                Value = c.GameId.ToString()
+            });
+            model.News_s = _db.News_s.Select(c => new SelectListItem
+            {
+                Text = c.UpdateTitle.ToString(),
+                Value = c.NewsId.ToString()
+            });
 
             var service = CreateFavoritesService();
 

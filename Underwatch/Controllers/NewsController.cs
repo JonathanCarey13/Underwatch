@@ -52,7 +52,7 @@ namespace Underwatch.Controllers
                 Value = c.GameId.ToString()
             });
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service =  new NewsService(userId);
+            var service = new NewsService(userId);
 
             service.CreateNews(model);
 
@@ -67,7 +67,7 @@ namespace Underwatch.Controllers
 
             return View(model);
         }
-        
+
         // Get: News/Edit/{id}
         public ActionResult Edit(int id)
         {
@@ -84,11 +84,18 @@ namespace Underwatch.Controllers
                     UpdateReleaseDate = detail.UpdateReleaseDate,
                 };
 
+            model.Games = _db.Games.Select(c => new SelectListItem
+            {
+                Text = c.Title.ToString(),
+                Value = c.GameId.ToString()
+            });
+
             return View(model);
         }
 
         // Post: News/Edit/{id}
         [HttpPost]
+        [ActionName("Edit")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, NewsEdit model)
         {
@@ -101,6 +108,12 @@ namespace Underwatch.Controllers
             }
 
             var service = CreateNewsService();
+
+            model.Games = _db.Games.Select(c => new SelectListItem
+            {
+                Text = c.Title.ToString(),
+                Value = c.GameId.ToString()
+            });
 
             if (service.UpdateNews(model))
             {

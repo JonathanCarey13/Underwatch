@@ -9,27 +9,25 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid col-md-10">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Underwatch", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    @if (User.Identity.IsAuthenticated)                             // This will display only if the user is logged in
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navBar">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item active">@Html.ActionLink("Home  |", "Index", "Home")</li>
+                    <li class="nav-item">@Html.ActionLink("About    |", "About", "Home")</li>
+                    <li class="nav-item">@Html.ActionLink("Contact  |", "Contact", "Home")</li>
+                    @if (User.Identity.IsAuthenticated)
                     {
-                    <li>@Html.ActionLink("Games List", "Index", "Game")</li>
-                    <li>@Html.ActionLink("News List", "Index", "News")</li>
-                    <li>@Html.ActionLink("Favorites List", "Index", "FavoritesList")</li>
-                  }
+                        <li class="nav-item">@Html.ActionLink("Games    |", "Index", "Game")</li>
+                        <li class="nav-item">@Html.ActionLink("News |", "Index", "News")</li>
+                        <li class="nav-item">@Html.ActionLink("Underwatch List  |", "Index", "FavoritesList")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -39,7 +37,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Jonathan Carey </p>
         </footer>
     </div>
 

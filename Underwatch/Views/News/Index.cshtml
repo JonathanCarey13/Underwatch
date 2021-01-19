@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.GameId)
+            @Html.DisplayNameFor(model => model.Game.Title)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IsDLC)
@@ -33,7 +33,7 @@
 {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.GameId)
+            @Html.DisplayFor(modelItem => item.Game.Title)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IsDLC)

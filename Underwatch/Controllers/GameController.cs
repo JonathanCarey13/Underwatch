@@ -15,8 +15,6 @@ namespace Underwatch.Controllers
     [Authorize]
     public class GameController : Controller
     {
-        //private ApplicationDbContext _db = new ApplicationDbContext();        //This is also part of the GeneralStoreMVC
-
         // Get: Game/Index
         public ActionResult Index()
         {

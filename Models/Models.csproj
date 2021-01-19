@@ -81,6 +81,7 @@
     <Compile Include="Game\GameDetail.cs" />
     <Compile Include="Game\GameEdit.cs" />
     <Compile Include="Game\GameListItem.cs" />
+    <Compile Include="Images\BackgroundImage.cs" />
     <Compile Include="News\CreateNewsViewModel.cs" />
     <Compile Include="News\NewsCreate.cs" />
     <Compile Include="News\NewsDetail.cs" />
@@ -98,6 +99,7 @@
       <Name>Data</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

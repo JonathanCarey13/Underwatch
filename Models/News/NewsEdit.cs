@@ -5,12 +5,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace Models.News
 {
     public class NewsEdit
     {
         public int NewsId { get; set; }
+        [Required]
+        [Display(Name = "Game Title")]
+        [ForeignKey(nameof(Game))]
+        public int GameId { get; set; }
+        public virtual GameListItem Game { get; set; }
         [MinLength(1, ErrorMessage = "Please enter at least 1 characters.")]
         [MaxLength(50, ErrorMessage = "Whoa there partner! Lets trim down a few sentences shall we? Maybe under 300 characters?")]
         [Display(Name = "Update Title")]
@@ -24,5 +30,6 @@ namespace Models.News
         public bool IsUpdate { get; set; }
         [Display(Name = "Release Date mm/dd/yyyy")]
         public DateTime UpdateReleaseDate { get; set; }
+        public IEnumerable<SelectListItem> Games { get; set; }
     }
 }
