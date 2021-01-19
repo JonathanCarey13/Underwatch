@@ -57,7 +57,8 @@ namespace Services
                                     Description = e.Description,
                                     IsDLC = e.IsDLC,
                                     IsUpdate = e.IsUpdate,
-                                    UpdateReleaseDate = e.UpdateReleaseDate
+                                    UpdateReleaseDate = e.UpdateReleaseDate,
+                                    Title = e.Game.Title
                                 }
                         );
 
@@ -81,7 +82,8 @@ namespace Services
                         Description = entity.Description,
                         IsDLC = entity.IsDLC,
                         IsUpdate = entity.IsUpdate,
-                        UpdateReleaseDate = entity.UpdateReleaseDate
+                        UpdateReleaseDate = entity.UpdateReleaseDate,
+                        Title = entity.Game.Title
                     };
             }
         }

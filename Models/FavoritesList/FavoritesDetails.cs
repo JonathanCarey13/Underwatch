@@ -17,12 +17,14 @@ namespace Models.FavoritesList
         [Display(Name = "Game Title")]
         [ForeignKey(nameof(Game))]
         public int GameId { get; set; }
-        public virtual GameDetail Game { get; set; }
+        public virtual GameListItem Game { get; set; }
         [Display(Name = "News Title")]
         [ForeignKey(nameof(News))]
         public int NewsId { get; set; }
         public virtual NewsDetail News { get; set; }
+        [Display(Name = "Game")]
         public string Title { get; set; }
+        [Display(Name ="Update Title")]
         public string UpdateTitle { get; set; }
     }
 }

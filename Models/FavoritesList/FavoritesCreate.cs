@@ -15,7 +15,7 @@ namespace Models.FavoritesList
         public int ListId { get; set; }
         [ForeignKey(nameof(Game))]
         public int GameId { get; set; }
-        public virtual GameCreate Game { get; set; }
+        public virtual GameListItem Game { get; set; }
         [ForeignKey(nameof(News))]
         public int NewsId { get; set; }
         public virtual NewsCreate News { get; set; }

@@ -17,6 +17,8 @@ namespace Models.Game
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         [MaxLength(50, ErrorMessage = "There are too many characters in this field.")]
         public string Genre { get; set; }
+        [Display(Name = "Release Date   eg: March 1995")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/yyyy}")]
         public DateTime ReleaseDate { get; set; }
         public bool IsReleased { get; set; }
         public bool EarlyAccess { get; set; }

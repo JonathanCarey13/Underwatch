@@ -11,7 +11,7 @@ namespace Models.News
     public class NewsDetail
     {
         public int NewsId { get; set; }
-        [Display(Name = "Game Title")]
+        [Display(Name = "Game")]
         [ForeignKey(nameof(Game))]
         public int GameId { get; set; }
         public virtual GameListItem Game { get; set; }
@@ -25,5 +25,7 @@ namespace Models.News
         public bool IsUpdate { get; set; }
         [Display(Name = "Release Date")]
         public DateTime UpdateReleaseDate { get; set; }
+        [Display(Name = "Game")]
+        public string Title { get; set; }
     }
 }

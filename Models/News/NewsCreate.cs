@@ -12,7 +12,7 @@ namespace Models.News
     public class NewsCreate
     {
         [Required]
-        [Display(Name = "Game Title")]
+        [Display(Name = "Game")]
         [ForeignKey(nameof(Game))]
         public int GameId { get; set; }
         public virtual GameListItem Game { get; set; }

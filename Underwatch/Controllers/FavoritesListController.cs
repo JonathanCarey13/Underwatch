@@ -125,6 +125,8 @@ namespace Underwatch.Controllers
                 return View(model);
             }
 
+            var service = CreateFavoritesService();
+
             model.Games = _db.Games.Select(c => new SelectListItem
             {
                 Text = c.Title.ToString(),
@@ -135,8 +137,6 @@ namespace Underwatch.Controllers
                 Text = c.UpdateTitle.ToString(),
                 Value = c.NewsId.ToString()
             });
-
-            var service = CreateFavoritesService();
 
             if (service.UpdateFavorites(model))
             {

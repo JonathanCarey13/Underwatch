@@ -91,8 +91,6 @@ namespace Services
 
                 entity.NewsId = model.NewsId;
                 entity.GameId = model.GameId;
-                //entity.Game.Title = model.Title;
-                //entity.News.UpdateTitle = model.UpdateTitle;
 
                 return ctx.SaveChanges() == 1;
 
