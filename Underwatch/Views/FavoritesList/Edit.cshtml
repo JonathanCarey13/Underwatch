@@ -11,6 +11,8 @@
 {
     @Html.AntiForgeryToken()
 
+    @Html.HiddenFor(model => model.ListId)
+
     <div class="form-horizontal">
         <h4>FavoritesEdit</h4>
         <hr />

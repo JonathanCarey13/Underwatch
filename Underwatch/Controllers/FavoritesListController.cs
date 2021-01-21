@@ -87,6 +87,7 @@ namespace Underwatch.Controllers
             var service = CreateFavoritesService();
             var detail = service.GetFavoritesById(id);
             var model = new FavoritesEdit();
+            model.ListId = id;
 
             model.Games = _db.Games.Select(c => new SelectListItem
             {
@@ -98,15 +99,6 @@ namespace Underwatch.Controllers
                 Text = c.UpdateTitle.ToString(),
                 Value = c.NewsId.ToString()
             });
-
-                //new FavoritesEdit
-                //{
-                //    ListId = detail.ListId,
-                //    NewsId = detail.NewsId,
-                //    GameId = detail.GameId,
-                //    Title = detail.Title,
-                //    UpdateTitle = detail.UpdateTitle
-                //};
 
             return View(model);
         }
@@ -125,8 +117,6 @@ namespace Underwatch.Controllers
                 return View(model);
             }
 
-            var service = CreateFavoritesService();
-
             model.Games = _db.Games.Select(c => new SelectListItem
             {
                 Text = c.Title.ToString(),
@@ -137,6 +127,10 @@ namespace Underwatch.Controllers
                 Text = c.UpdateTitle.ToString(),
                 Value = c.NewsId.ToString()
             });
+
+            var service = CreateFavoritesService();
+
+            model.ListId = id;
 
             if (service.UpdateFavorites(model))
             {
