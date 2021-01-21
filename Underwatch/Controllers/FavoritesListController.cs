@@ -13,8 +13,6 @@ namespace Underwatch.Controllers
     [Authorize]
     public class FavoritesListController : Controller
     {
-        private ApplicationDbContext _db = new ApplicationDbContext();
-
         // Get: FavoritesList/Index
         public ActionResult Index()
         {
@@ -29,17 +27,10 @@ namespace Underwatch.Controllers
         public ActionResult Create()
         {
             var viewModel = new CreateFavoritesListViewModel();
+            var service = CreateFavoritesService();
 
-            viewModel.Games = _db.Games.Select(c => new SelectListItem
-            {
-                Text = c.Title,
-                Value = c.GameId.ToString()
-            });
-            viewModel.News_s = _db.News_s.Select(c => new SelectListItem
-            {
-                Text = c.UpdateTitle,
-                Value = c.NewsId.ToString()
-            });
+            service.DropDownCreate(viewModel);
+
             return View(viewModel);
         }
 
@@ -48,24 +39,17 @@ namespace Underwatch.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreateFavoritesListViewModel viewModel)
         {
+            var service = CreateFavoritesService();
+
             if (!ModelState.IsValid)
             {
                 return View(viewModel);
             }
 
-            viewModel.Games = _db.Games.Select(c => new SelectListItem
-            {
-                Text = c.Title.ToString(),
-                Value = c.GameId.ToString()
-            });
-            viewModel.News_s = _db.News_s.Select(c => new SelectListItem
-            {
-                Text = c.UpdateTitle.ToString(),
-                Value = c.NewsId.ToString()
-            });
+            service.DropDownCreate(viewModel);
 
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new FavoritesService(userId);
+            service = new FavoritesService(userId);
 
             service.CreateFavorites(viewModel);
 
@@ -85,20 +69,12 @@ namespace Underwatch.Controllers
         public ActionResult Edit(int id)
         {
             var service = CreateFavoritesService();
-            var detail = service.GetFavoritesById(id);
+            service.GetFavoritesById(id);
+
             var model = new FavoritesEdit();
             model.ListId = id;
+            service.DropDownEdit(model);
 
-            model.Games = _db.Games.Select(c => new SelectListItem
-            {
-                Text = c.Title.ToString(),
-                Value = c.GameId.ToString()
-            });
-            model.News_s = _db.News_s.Select(c => new SelectListItem
-            {
-                Text = c.UpdateTitle.ToString(),
-                Value = c.NewsId.ToString()
-            });
 
             return View(model);
         }
@@ -117,20 +93,9 @@ namespace Underwatch.Controllers
                 return View(model);
             }
 
-            model.Games = _db.Games.Select(c => new SelectListItem
-            {
-                Text = c.Title.ToString(),
-                Value = c.GameId.ToString()
-            });
-            model.News_s = _db.News_s.Select(c => new SelectListItem
-            {
-                Text = c.UpdateTitle.ToString(),
-                Value = c.NewsId.ToString()
-            });
-
             var service = CreateFavoritesService();
-
             model.ListId = id;
+            service.DropDownEdit(model);
 
             if (service.UpdateFavorites(model))
             {

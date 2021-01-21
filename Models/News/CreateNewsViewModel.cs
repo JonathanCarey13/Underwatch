@@ -11,6 +11,5 @@ namespace Models.News
     {
         public IEnumerable<SelectListItem> Games { get; set; }
         public int GameId { get; set; }
-
     }
 }

@@ -111,6 +111,37 @@ namespace Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public void DropDownCreate(CreateFavoritesListViewModel viewModel)
+        {
+            var ctx = new ApplicationDbContext();
 
+            viewModel.Games = ctx.Games.Select(c => new SelectListItem
+            {
+                Text = c.Title.ToString(),
+                Value = c.GameId.ToString()
+            });
+            viewModel.News_s = ctx.News_s.Select(c => new SelectListItem
+            {
+                Text = c.UpdateTitle.ToString(),
+                Value = c.NewsId.ToString()
+            });
+
+        }
+        public void DropDownEdit(FavoritesEdit model)
+        {
+            var ctx = new ApplicationDbContext();
+
+            model.Games = ctx.Games.Select(c => new SelectListItem
+            {
+                Text = c.Title.ToString(),
+                Value = c.GameId.ToString()
+            });
+            model.News_s = ctx.News_s.Select(c => new SelectListItem
+            {
+                Text = c.UpdateTitle.ToString(),
+                Value = c.NewsId.ToString()
+            });
+
+        }
     }
 }
