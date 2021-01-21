@@ -117,12 +117,12 @@ namespace Services
 
             viewModel.Games = ctx.Games.Select(c => new SelectListItem
             {
-                Text = c.Title.ToString(),
+                Text = c.Title,
                 Value = c.GameId.ToString()
             });
             viewModel.News_s = ctx.News_s.Select(c => new SelectListItem
             {
-                Text = c.UpdateTitle.ToString(),
+                Text = c.UpdateTitle,
                 Value = c.NewsId.ToString()
             });
 
@@ -133,12 +133,12 @@ namespace Services
 
             model.Games = ctx.Games.Select(c => new SelectListItem
             {
-                Text = c.Title.ToString(),
+                Text = c.Title,
                 Value = c.GameId.ToString()
             });
             model.News_s = ctx.News_s.Select(c => new SelectListItem
             {
-                Text = c.UpdateTitle.ToString(),
+                Text = c.UpdateTitle,
                 Value = c.NewsId.ToString()
             });
 

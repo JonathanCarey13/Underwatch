@@ -39,13 +39,12 @@ namespace Underwatch.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreateFavoritesListViewModel viewModel)
         {
-            var service = CreateFavoritesService();
-
             if (!ModelState.IsValid)
             {
                 return View(viewModel);
             }
 
+            var service = CreateFavoritesService();
             service.DropDownCreate(viewModel);
 
             var userId = Guid.Parse(User.Identity.GetUserId());

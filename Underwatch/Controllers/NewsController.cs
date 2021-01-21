@@ -28,33 +28,31 @@ namespace Underwatch.Controllers
         // Get: News/Create
         public ActionResult Create()
         {
-            ViewData["Games"] = _db.Games.Select(c => new SelectListItem
-            {
-                Text = c.Title,
-                Value = c.GameId.ToString()
-            });
+            var viewModel = new CreateNewsViewModel();
+            var service = CreateNewsService();
 
-            return View();
+            service.DropDownCreate(viewModel);
+
+            return View(viewModel);
         }
 
         // Post: News/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(NewsCreate model)
+        public ActionResult Create(CreateNewsViewModel viewModel)
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View(viewModel);
             }
-            ViewData["Games"] = _db.Games.Select(c => new SelectListItem
-            {
-                Text = c.Title,
-                Value = c.GameId.ToString()
-            });
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new NewsService(userId);
 
-            service.CreateNews(model);
+            var service = CreateNewsService();
+            service.DropDownCreate(viewModel);
+
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            service = new NewsService(userId);
+
+            service.CreateNews(viewModel);
 
             return RedirectToAction("Index");
         }
@@ -73,22 +71,18 @@ namespace Underwatch.Controllers
         {
             var service = CreateNewsService();
             var detail = service.GetNewsById(id);
-            var model =
-                new NewsEdit
-                {
-                    NewsId = detail.NewsId,
-                    UpdateTitle = detail.UpdateTitle,
-                    Description = detail.Description,
-                    IsDLC = detail.IsDLC,
-                    IsUpdate = detail.IsUpdate,
-                    UpdateReleaseDate = detail.UpdateReleaseDate,
-                };
-
-            model.Games = _db.Games.Select(c => new SelectListItem
+            var model = new NewsEdit
             {
-                Text = c.Title.ToString(),
-                Value = c.GameId.ToString()
-            });
+                NewsId = detail.NewsId,
+                UpdateTitle = detail.UpdateTitle,
+                Description = detail.Description,
+                IsDLC = detail.IsDLC,
+                IsUpdate = detail.IsUpdate,
+                UpdateReleaseDate = detail.UpdateReleaseDate,
+            };
+
+            model.NewsId = id;
+            service.DropDownEdit(model);
 
             return View(model);
         }
@@ -108,12 +102,8 @@ namespace Underwatch.Controllers
             }
 
             var service = CreateNewsService();
-
-            model.Games = _db.Games.Select(c => new SelectListItem
-            {
-                Text = c.Title.ToString(),
-                Value = c.GameId.ToString()
-            });
+            model.NewsId = id;
+            service.DropDownEdit(model);
 
             if (service.UpdateNews(model))
             {
@@ -148,6 +138,7 @@ namespace Underwatch.Controllers
             return RedirectToAction("Index");
         }
 
+        // Service Method
         private NewsService CreateNewsService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

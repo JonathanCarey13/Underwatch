@@ -1,4 +1,4 @@
-﻿@model Models.News.NewsCreate
+﻿@model Models.News.CreateNewsViewModel
 
 @{
     ViewBag.Title = "Create";
@@ -7,10 +7,12 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
+    @Html.HiddenFor(model => model.NewsId);
+
     <div class="form-horizontal">
         <h4>NewsCreate</h4>
         <hr />
@@ -18,7 +20,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.GameId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("GameId", (IEnumerable<SelectListItem>) ViewData["Games"], htmlAttributes: new { @class = "form-control" } )
+                @Html.DropDownList("GameId", Model.Games, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.GameId, "", new { @class = "text-danger" })
             </div>
         </div>

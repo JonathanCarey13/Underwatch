@@ -19,18 +19,18 @@ namespace Services
             _userId = userId;
         }
 
-        public bool CreateNews(NewsCreate model)
+        public bool CreateNews(CreateNewsViewModel viewModel)
         {
             var entity =
                 new News()
                 {
                     OwnerId = _userId,
-                    GameId = model.GameId,
-                    UpdateTitle = model.UpdateTitle,
-                    Description = model.Description,
-                    IsDLC = model.IsDLC,
-                    IsUpdate = model.IsUpdate,
-                    UpdateReleaseDate = model.UpdateReleaseDate
+                    GameId = viewModel.GameId,
+                    UpdateTitle = viewModel.UpdateTitle,
+                    Description = viewModel.Description,
+                    IsDLC = viewModel.IsDLC,
+                    IsUpdate = viewModel.IsUpdate,
+                    UpdateReleaseDate = viewModel.UpdateReleaseDate
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -120,6 +120,25 @@ namespace Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public void DropDownCreate(CreateNewsViewModel viewModel)
+        {
+            var ctx = new ApplicationDbContext();
 
+            viewModel.Games = ctx.Games.Select(c => new SelectListItem
+            {
+                Text = c.Title,
+                Value = c.GameId.ToString()
+            });
+        }
+        public void DropDownEdit(NewsEdit model)
+        {
+            var ctx = new ApplicationDbContext();
+
+            model.Games = ctx.Games.Select(c => new SelectListItem
+            {
+                Text = c.Title.ToString(),
+                Value = c.GameId.ToString()
+            });
+        }
     }
 }
