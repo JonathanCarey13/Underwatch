@@ -115,33 +115,49 @@ namespace Services
         {
             var ctx = new ApplicationDbContext();
 
-            viewModel.Games = ctx.Games.Select(c => new SelectListItem
-            {
-                Text = c.Title,
-                Value = c.GameId.ToString()
-            });
-            viewModel.News_s = ctx.News_s.Select(c => new SelectListItem
-            {
-                Text = c.UpdateTitle,
-                Value = c.NewsId.ToString()
-            });
+            viewModel.Games =
+                ctx
+                .Games
+                .Where(e => e.OwnerId == _userId)
+                .Select(c => new SelectListItem
+                {
+                    Text = c.Title,
+                    Value = c.GameId.ToString()
+                });
 
+            viewModel.Games =
+                ctx
+                .News_s
+                .Where(e => e.OwnerId == _userId)
+                .Select(c => new SelectListItem
+                {
+                    Text = c.UpdateTitle,
+                    Value = c.NewsId.ToString()
+                });
         }
         public void DropDownEdit(FavoritesEdit model)
         {
             var ctx = new ApplicationDbContext();
 
-            model.Games = ctx.Games.Select(c => new SelectListItem
-            {
-                Text = c.Title,
-                Value = c.GameId.ToString()
-            });
-            model.News_s = ctx.News_s.Select(c => new SelectListItem
-            {
-                Text = c.UpdateTitle,
-                Value = c.NewsId.ToString()
-            });
+            model.Games =
+                ctx
+                .Games
+                .Where(e => e.OwnerId == _userId)
+                .Select(c => new SelectListItem
+                {
+                    Text = c.Title,
+                    Value = c.GameId.ToString()
+                });
 
+            model.Games =
+                ctx
+                .News_s
+                .Where(e => e.OwnerId == _userId)
+                .Select(c => new SelectListItem
+                {
+                    Text = c.UpdateTitle,
+                    Value = c.NewsId.ToString()
+                });
         }
     }
 }

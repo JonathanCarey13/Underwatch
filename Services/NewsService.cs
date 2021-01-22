@@ -124,21 +124,29 @@ namespace Services
         {
             var ctx = new ApplicationDbContext();
 
-            viewModel.Games = ctx.Games.Select(c => new SelectListItem
-            {
-                Text = c.Title,
-                Value = c.GameId.ToString()
-            });
+            viewModel.Games =
+                ctx
+                .Games
+                .Where(e => e.OwnerId == _userId)
+                .Select(c => new SelectListItem
+                {
+                    Text = c.Title,
+                    Value = c.GameId.ToString()
+                });
         }
         public void DropDownEdit(NewsEdit model)
         {
             var ctx = new ApplicationDbContext();
 
-            model.Games = ctx.Games.Select(c => new SelectListItem
-            {
-                Text = c.Title.ToString(),
-                Value = c.GameId.ToString()
-            });
+            model.Games =
+                ctx
+                .Games
+                .Where(e => e.OwnerId == _userId)
+                .Select(c => new SelectListItem
+                {
+                    Text = c.Title,
+                    Value = c.GameId.ToString()
+                });
         }
     }
 }

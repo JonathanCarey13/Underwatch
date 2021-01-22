@@ -13,8 +13,6 @@ namespace Underwatch.Controllers
     [Authorize]
     public class NewsController : Controller
     {
-        private Data.ApplicationDbContext _db = new Data.ApplicationDbContext();
-
         // Get: News/Index
         public ActionResult Index()
         {
