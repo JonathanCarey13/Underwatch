@@ -25,12 +25,7 @@ To install this app, follow these steps:
 1. Clone the repository onto your computer
 2. Download and install Microsoft Visual Studio Community for your Operating System from this link: https://visualstudio.microsoft.com/
 3. Open Underwatch with Visual Studio and search for "manage nuget packages in solution" and click on that option in the drop down list
-4. Install the following packages:
-- Microsoft.AspNet.Razor
-- Microsoft.AspNet.WebPages
-- Microsoft.Owin
-- EntityFramework
-- Microsoft.AspNet.Mvc
+4. Look at the "packages" folder in the this projects directory and make sure you download everything in the folder.
 (Note: Theres a chance I missed a package. If thats the case, click on any red underlined squiggles you may find, right click on  them, select "Quick Actions and Refactoring" and install the recommended packages that appear in the drop down menus.)
 5. Set up the project assemblies' references:
 - Right click on WebMVC Assembly 
