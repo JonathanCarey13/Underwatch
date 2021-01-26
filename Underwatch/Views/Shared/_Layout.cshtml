@@ -3,46 +3,48 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Underwatch</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href="~/Content/StyleSheet.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <div class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid col-md-10">
-            <div class="navbar-header">
-                @Html.ActionLink("Underwatch", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navBar">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item active">@Html.ActionLink("Home  |", "Index", "Home")</li>
-                    <li class="nav-item">@Html.ActionLink("About    |", "About", "Home")</li>
-                    <li class="nav-item">@Html.ActionLink("Contact  |", "Contact", "Home")</li>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li class="nav-item">@Html.ActionLink("Games    |", "Index", "Game")</li>
-                        <li class="nav-item">@Html.ActionLink("News |", "Index", "News")</li>
-                        <li class="nav-item">@Html.ActionLink("Underwatch List  |", "Index", "FavoritesList")</li>
-                    }
-                </ul>
-                @Html.Partial("_LoginPartial")
+    <div id="bootstrapOverride">
+        <div class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid col-md-10">
+                <div class="navbar-header font-weight-bolder" id="underWatchLogo">
+                    @Html.ActionLink("Underwatch", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navBar">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item active">@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li class="nav-item">@Html.ActionLink("About", "About", "Home")</li>
+                        <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">@Html.ActionLink("Games", "Index", "Game")</li>
+                            <li class="nav-item">@Html.ActionLink("News", "Index", "News")</li>
+                            <li class="nav-item">@Html.ActionLink("Underwatch List", "Index", "FavoritesList")</li>
+                        }
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
         </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer class="footerclass">
+                <p>&copy; @DateTime.Now.Year - Jonathan Carey </p>
+            </footer>
+        </div>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Jonathan Carey </p>
-        </footer>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
 </html>

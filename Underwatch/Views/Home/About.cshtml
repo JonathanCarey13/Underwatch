@@ -1,18 +1,18 @@
 ﻿@{
     ViewBag.Title = "About Underwatch";
 }
-<h2>@ViewBag.Title</h2>
+<h2 class="text-success">@ViewBag.Title</h2>
 
 <p>Underwatch is an N-Tier MVC Web Application created by me, Jonathan Carey. This app was created as a showcase my Software Development Skills that I recently learned at Eleven Fifty Academy over the past 6 months. </p>
-<p>The purpose of Underwatch is to create an easy way to catalogue and follow Games and News/Updates for Games that a user is interested in. Currently the app has a fully functioning CRUD but several features have yet to be implemented, mostly to time constraits for my class and some things I need to learn on my own. </p>
-<ul>
+<p>The purpose of Underwatch is to create an easy way to catalogue and follow Games and News/Updates for Games that a user is interested in. Currently the app has a fully functioning CRUD but several features have yet to be implemented, mostly due to time constraits for my class. </p>
+<ul class="text-success">
     <li>countdown timer for new games coming out</li>
     <li>let users pick from a premade database of games from an outside API</li>
     <li>use web scrapping to find updates and news on games</li>
     <li>allows users to get notifications about game updates</li>
     <li>display active user for a particular game</li>
 </ul>
-<p>These features will be implemented into the app after I graduate from Eleven Fifty Academy and continue learning on my own.</p>
+<p>These features will be implemented into the app after I graduate from Eleven Fifty Academy and continue developing my programming skills.</p>
 
-@Html.ActionLink("Contact", "Contact", "Home")
+@Html.ActionLink("Contact", "Contact", "Home") |
 @Html.ActionLink("Home", "Index", "Home")

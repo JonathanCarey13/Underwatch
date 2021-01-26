@@ -1,0 +1,151 @@
+﻿:root {
+    --grn: #00e205;
+    --drkgray: #161618;
+    --lgtgrey: #27282E;
+    --pnk: #E501BD;
+}
+
+body {
+    padding: 0 !important;
+    margin: 0;
+    max-width: 100vw;
+    max-height: 100vh;
+}
+
+    body #bootstrapOverride {
+        background-color: var(--lgtgrey);
+        Background-repeat: no-repeat;
+        margin: 0;
+        height: 100vh;
+    }
+
+#bootstrapOverride .btn {
+    border: solid;
+    border-color: var(--grn);
+    background-color: var(--grn);
+    color: var(--drkgray);
+}
+
+    #bootstrapOverride .btn:hover {
+        background-color: var(--drkgray);
+        border-color: var(--drkgray);
+        color: var(--grn);
+    }
+
+
+    #bootstrapOverride .btn a {
+        color: inherit;
+    }
+
+        #bootstrapOverride .btn a:hover {
+            color: inherit;
+        }
+
+#bootstrapOverride .navbar {
+    background-color: var(--drkgray);
+}
+
+    #bootstrapOverride .navBar:hover {
+        text-decoration: none;
+        color: var(--grn);
+    }
+
+#bootstrapOverride a {
+    color: var(--grn);
+}
+
+    #bootstrapOverride a:hover {
+        color: var(--pnk);
+        text-decoration: none;
+    }
+
+#bootstrapOverride p {
+    color: var(--grn);
+}
+
+#bootstrapOverride h1 {
+    color: var(--grn);
+}
+
+#bootstrapOverride hr {
+    background-color: var(--drkgray);
+}
+
+#bootstrapOverride #navBar li {
+    margin-right: 1.5em;
+}
+
+#bootstrapOverride .jumbotron {
+    background: url("https://images.unsplash.com/photo-1610561212775-b191f21b6998?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80") no-repeat;
+    height: 500px;
+    background-position-y: center;
+    background-position-x: left;
+}
+
+
+#bootstrapOverride .heroContainer {
+    padding: 0em !important;
+    margin: 0em !important;
+}
+
+#bootstrapOverride #jumbotronText {
+    text-shadow: 1px 1px var(--pnk);
+}
+
+#bootstrapOverride .navbar-header a {
+    text-shadow: 1px 1px var(--pnk);
+    margin-left: auto;
+    font-size: 35px;
+}
+
+#bootstrapOverride #underWatchLogo {
+    text-shadow: 3px 3px var(--pnk);
+    margin-left: auto;
+    font-size: 35px;
+}
+
+    #bootstrapOverride #underWatchLogo:hover {
+        text-shadow: 3px 3px var(--grn);
+        margin-left: auto;
+        font-size: 35px;
+    }
+
+#bootstrapOverride .navbar-header a:hover {
+    color: var(--pnk);
+    text-shadow: 1px 1px var(--grn);
+}
+
+#bootstrapOverride .indexBody a {
+    text-shadow: 1px 1px var(--pnk);
+}
+
+    #bootstrapOverride .indexBody a:hover {
+        color: var(--pnk);
+        text-shadow: 1px 1px var(--grn);
+    }
+
+#bootstrapOverride .indexBody h2 {
+    text-shadow: 2px 2px var(--pnk);
+}
+
+    #bootstrapOverride .indexBody h2:hover {
+        color: var(--pnk);
+        text-shadow: 2px 2px var(--grn);
+    }
+
+#bootstrapOverride #gamesContainer .gamesTitle {
+    color: var(--grn);
+}
+
+#bootstrapOverride .table {
+    background: var(--drkgray);
+}
+
+#bootstrapOverride #gamesTitle {
+    color: var(--grn) !important;
+    font-size: 50px !important;
+}
+
+#bootstrapOverride .createItem {
+    font-size: 30px;
+}
