@@ -4,12 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 id="pageTitles">News and Updates</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<table class="table table-dark text-center">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Title)
@@ -26,33 +23,38 @@
         <th>
             @Html.DisplayNameFor(model => model.UpdateReleaseDate)
         </th>
-        <th></th>
+        <th>
+            Edit | Details | Delete
+        </th>
     </tr>
 
-@foreach (var item in Model)
-{
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsDLC)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsUpdate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdateTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdateReleaseDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.NewsId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.NewsId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.NewsId })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDLC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsUpdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateReleaseDate)
+            </td>
+            <td class="myIcons">
+                @Html.ActionLink(" ", "Edit", new { id = item.NewsId }, new { @class = "bi bi-pencil-fill", @style = "font-size: 25px;" }) |
+                @Html.ActionLink(" ", "Details", new { id = item.NewsId }, new { @class = "bi bi-search", @style = "font-size: 25px;" }) |
+                @Html.ActionLink(" ", "Delete", new { id = item.NewsId }, new { @class = "bi bi-trash", @style = "font-size: 25px;" })
+            </td>
+        </tr>
+    }
 </table>
+
+<p class="lowerLinks" >
+    @Html.ActionLink("Create New", "Create") <i class="bi bi-newspaper" style="font-size: xx-large"></i>
+</p>

@@ -2,29 +2,6 @@
     ViewBag.Title = "Home Page";
 }
 
-@*<div id="slides" class="carousel slide" data-ride="carousel">
-        <ul class="carousel-indicators">
-            <li data-target="#slides" data-slide-to="0" class="active"></li>
-            <li data-target="#slides" data-slide-to="1"></li>
-            <li data-target="#slides" data-slide-to="2"></li>
-        </ul>
-    </div>*@
-@*<div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="#" alt="Uh oh.. Something went horribly wrong, so instead image a vaporwave styled image of old gaming systems illuminated by neon lights." />
-            <div class="carousel-caption">
-                <h1 class="display-2">Underwatch</h1>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="#" alt="Uh oh.. Something went horribly wrong, so instead image a vaporwave styled image of old gaming systems illuminated by neon lights." />
-        </div>
-        <div class="carousel-item">
-            <img src="#" alt="Uh oh.. Something went horribly wrong, so instead image a vaporwave styled image of old gaming systems illuminated by neon lights." />
-        </div>
-
-    </div>*@
-
 <div class="container-fluid heroContainer">
     <div class="row jumbotron">
         <div class="col-xs-12 col-sm-12 col-md-9 col-xl-10">
@@ -45,21 +22,21 @@
             <h2><a href="#gamesList" data-toggle="collapse">Your List of Games</a></h2>
             <div id="gamesList" class="collapse in">
                 <p>This list allows you to make a collection of any games you want to keep an eye on for news updates!</p>
-                <p><a @*class="btn btn-default"*@ href="">@Html.ActionLink("Games", "Index", "Game") &raquo;</a><i class="bi bi-controller"></i></p>
+                <p><a href="">@Html.ActionLink("Games", "Index", "Game") &raquo;</a> <i class="bi bi-controller" style="font-size: large"></i></p>
             </div>
         </div>
         <div class="col-lg-4">
             <h2><a href="#newsList" data-toggle="collapse">Your Game News</a></h2>
             <div id="newsList" class="collapse in">
                 <p>This list allows you to create any updates about a Game you've listed, whether its upcoming sales, DLC's or any type of news you want to follow!</p>
-                <p><a @*class="btn btn-default"*@ href="">@Html.ActionLink("News", "Index", "News") &raquo;</a></p>
+                <p><a href="">@Html.ActionLink("News", "Index", "News") &raquo;</a> <i class="bi bi-newspaper" style="font-size: large"></i></p>
             </div>
         </div>
         <div class="col-lg-4">
             <h2><a href="#underwatchList" data-toggle="collapse">The Underwatch List</a></h2>
             <div id="underwatchList" class="collapse in">
                 <p>Wanna see an overview of any games and news that are on your mind? The Underwatch list lets you see any specific games and updates you might have an keen interest in!</p>
-                <p><a @*class="btn btn-default"*@ href="">@Html.ActionLink("Underwatch List", "Index", "FavoritesList") &raquo;</a></p>
+                <p><a href="">@Html.ActionLink("Underwatch List", "Index", "FavoritesList") &raquo;</a> <i class="bi bi-headset" style="font-size: large"></i></p>
             </div>
         </div>
     </div>

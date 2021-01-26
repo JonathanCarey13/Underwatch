@@ -39,7 +39,6 @@ namespace Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-
                 var query =
                     ctx
                         .FavoriteLists
@@ -125,7 +124,7 @@ namespace Services
                     Value = c.GameId.ToString()
                 });
 
-            viewModel.Games =
+            viewModel.News_s =
                 ctx
                 .News_s
                 .Where(e => e.OwnerId == _userId)
@@ -149,7 +148,7 @@ namespace Services
                     Value = c.GameId.ToString()
                 });
 
-            model.Games =
+            model.News_s =
                 ctx
                 .News_s
                 .Where(e => e.OwnerId == _userId)

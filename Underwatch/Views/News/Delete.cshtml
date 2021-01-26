@@ -4,27 +4,16 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
+<h3 id="pageTitles">Are you sure you want to DELETE this News/Update?</h3>
 <div>
-    <h4>NewsDetail</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.NewsId)
+            @Html.DisplayNameFor(model => model.Title)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.NewsId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.GameId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GameId)
+            @Html.DisplayFor(model => model.Title)
         </dd>
 
         <dt>
@@ -72,7 +61,7 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
+        <div class="lowerLinks">
             <input type="submit" value="Delete" class="btn btn-default" /> |
             @Html.ActionLink("Back to List", "Index")
         </div>

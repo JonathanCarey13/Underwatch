@@ -4,15 +4,13 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
-
+<h2 id="pageTitles">Edit this Update/News</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>NewsEdit</h4>
+    <div class="form-horizontal" style="color:var(--grn);">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.NewsId)
@@ -24,6 +22,7 @@
                 @Html.ValidationMessageFor(model => model.GameId, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.UpdateTitle, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -76,7 +75,7 @@
     </div>
 }
 
-<div>
+<div class="lowerLinks">
     @Html.ActionLink("Back to List", "Index")
 </div>
 

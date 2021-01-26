@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2 id="pageTitles">Edit this Underwatch</h2>
 
 
 @using (Html.BeginForm())
@@ -14,7 +14,6 @@
     @Html.HiddenFor(model => model.ListId)
 
     <div class="form-horizontal">
-        <h4>FavoritesEdit</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -40,7 +39,7 @@
     </div>
 }
 
-<div>
+<div class="lowerLinks">
     @Html.ActionLink("Back to List", "Index")
 </div>
 

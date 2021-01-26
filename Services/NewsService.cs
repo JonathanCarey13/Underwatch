@@ -39,6 +39,7 @@ namespace Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
         public IEnumerable<NewsListItem> GetNews()
         {
             using (var ctx = new ApplicationDbContext())
@@ -65,6 +66,7 @@ namespace Services
                 return query.ToArray();
             }
         }
+
         public NewsDetail GetNewsById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -87,6 +89,7 @@ namespace Services
                     };
             }
         }
+
         public bool UpdateNews(NewsEdit model)
         {
             using (var ctx = new ApplicationDbContext())

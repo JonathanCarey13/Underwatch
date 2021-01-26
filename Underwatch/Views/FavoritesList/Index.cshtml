@@ -4,48 +4,39 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 id="pageTitles">Underwatch List</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<table class="table table-dark text-center">
     <tr>
-        @*<th>
-            @Html.DisplayNameFor(model => model.GameId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.News.UpdateTitle)
-        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.UpdateTitle)
         </th>
+        <th>
+            Edit | Details | Delete
+        </th>
     </tr>
 
-@foreach (var item in Model)
-{
-    <tr>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.GameId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NewsId)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdateTitle)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ListId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ListId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ListId })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateTitle)
+            </td>
+            <td class="myIcons">
+                @Html.ActionLink(" ", "Edit", new { id = item.ListId }, new { @class = "bi bi-pencil-fill", @style = "font-size: 25px;" }) |
+                @Html.ActionLink(" ", "Details", new { id = item.ListId }, new { @class = "bi bi-search", @style = "font-size: 25px;" }) |
+                @Html.ActionLink(" ", "Delete", new { id = item.ListId }, new { @class = "bi bi-trash", @style = "font-size: 25px;" })
+            </td>
+        </tr>
+    }
 </table>
+
+<p class="lowerLinks">
+    @Html.ActionLink("Create New", "Create") <i class="bi bi-headset" style="font-size: xx-large"></i>
+</p>

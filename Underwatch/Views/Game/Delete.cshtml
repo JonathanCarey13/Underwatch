@@ -4,63 +4,64 @@
     ViewBag.Title = "Delete";
 }
 
-<h3 class="text-success">Are you sure you want to DELETE this game?</h3>
-<div>
+<h3 id="pageTitles">Are you sure you want to DELETE this game?</h3>
+
+<div class="formsTextColor">
     <hr />
-    <dl class="dl-horizontal text-success">
-        <dt class="text-success font-weight-bolder">
+    <dl class="dl-horizontal" style="color: var(--grn);">
+        <dt class="font-weight-bolder">
             @Html.DisplayNameFor(model => model.Title)
         </dt>
 
-        <dd class="text-success">
+        <dd>
             @Html.DisplayFor(model => model.Title)
         </dd>
 
-        <dt class="text-success font-weight-bolder">
+        <dt class="font-weight-bolder">
             @Html.DisplayNameFor(model => model.Genre)
         </dt>
 
-        <dd class="text-success">
+        <dd>
             @Html.DisplayFor(model => model.Genre)
         </dd>
 
-        <dt class="text-success font-weight-bolder">
+        <dt class="font-weight-bolder">
             @Html.DisplayNameFor(model => model.ReleaseDate)
         </dt>
 
-        <dd class="text-success">
+        <dd>
             @Html.DisplayFor(model => model.ReleaseDate)
         </dd>
 
-        <dt class="text-success font-weight-bolder">
+        <dt class="font-weight-bolder">
             @Html.DisplayNameFor(model => model.IsReleased)
         </dt>
 
-        <dd class="text-success">
+        <dd>
             @Html.DisplayFor(model => model.IsReleased)
         </dd>
 
-        <dt class="text-success font-weight-bolder">
+        <dt class="font-weight-bolder">
             @Html.DisplayNameFor(model => model.EarlyAccess)
         </dt>
 
-        <dd class="text-success">
+        <dd>
             @Html.DisplayFor(model => model.EarlyAccess)
         </dd>
 
-        <dt class="text-success font-weight-bolder">
+        <dt class="font-weight-bolder">
             @Html.DisplayNameFor(model => model.GameWebsite)
         </dt>
 
-        <dd class="text-success">
+        <dd>
             @Html.DisplayFor(model => model.GameWebsite)
         </dd>
 
-        <dt class="text-success font-weight-bolder">
+        <dt class="font-weight-bolder">
             @Html.DisplayNameFor(model => model.IsOwned)
         </dt>
 
-        <dd class="text-success">
+        <dd>
             @Html.DisplayFor(model => model.IsOwned)
         </dd>
 
@@ -69,7 +70,7 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
+        <div class="lowerLinks">
             <input type="submit" value="Delete" class="btn btn-default" /> |
             @Html.ActionLink("Back to List", "Index")
         </div>

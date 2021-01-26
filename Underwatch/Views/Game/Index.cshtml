@@ -3,71 +3,69 @@
 @{
     ViewBag.Title = "Index";
 }
-<div id="gamesContainer">
-    <h2 style="font-size: 50px; color:var(--grn); text-shadow: 3px 3px var(--pnk);" id="gamesTitle">Games</h2>
 
+<h2 id="pageTitles">Games</h2>
 
-    @if (TempData.ContainsKey("SaveResult"))
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+<table class="table table-dark text-center">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsReleased)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsOwned)
+        </th>
+        <th>
+            Edit | Details | Delete
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
     {
-        <div class="alert alert-success fade in" role="alert">
-
-            <button type="button" class="close" data-dismiss="alert">
-                <span>&times;</span>
-            </button>
-            @TempData["SaveResult"]
-        </div>
-    }
-    <table class="table table-dark text-center">
-
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Genre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReleaseDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsReleased)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsOwned)
-            </th>
-            <th>Edit | Details | Delete</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsReleased)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsOwned)
+            </td>
+            <td class="myIcons">
+                @Html.ActionLink(" ", "Edit", new { id = item.GameId }, new { @class = "bi bi-pencil-fill", @style = "font-size: 25px;" }) |
+                @Html.ActionLink(" ", "Details", new { id = item.GameId }, new { @class = "bi bi-search", @style = "font-size: 25px;" }) |
+                @Html.ActionLink(" ", "Delete", new { id = item.GameId }, new { @class = "bi bi-trash", @style = "font-size: 25px;" })
+            </td>
         </tr>
+    }
+</table>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Genre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReleaseDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsReleased)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsOwned)
-                </td>
-                <td class="myIcons">
-                    @Html.ActionLink(" ", "Edit", new { id = item.GameId }, new { @class = "bi bi-pencil-fill", @style = "font-size: 25px;"}) |
-                    @Html.ActionLink(" ", "Details", new { id = item.GameId }, new { @class = "bi bi-search", @style = "font-size: 25px;" }) |
-                    @Html.ActionLink(" ", "Delete", new { id = item.GameId }, new { @class = "bi bi-trash", @style = "font-size: 25px;" })
-                </td>
-            </tr>
-        }
-
-    </table>
-
-    <p class="createItem">
-        @Html.ActionLink("Create Game", "Create") <i class="bi bi-controller" style="font-size: xx-large"></i>
-    </p>
-
-</div>
+<p class="lowerLinks">
+    @Html.ActionLink("Create Game", "Create") <i class="bi bi-controller" style="font-size: xx-large"></i>
+</p>

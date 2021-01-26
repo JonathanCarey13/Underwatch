@@ -141,11 +141,42 @@ body {
     background: var(--drkgray);
 }
 
-#bootstrapOverride #gamesTitle {
+#bootstrapOverride #pageTitles {
     color: var(--grn) !important;
     font-size: 50px !important;
+    text-shadow: 3px 3px var(--pnk);
 }
 
-#bootstrapOverride .createItem {
+#bootstrapOverride .form-horizontal {
+    color: var(--grn);
+}
+
+#bootstrapOverride .lowerLinks {
     font-size: 30px;
+}
+
+#bootstrapOverride .dl-horizontal {
+    color: var(--grn);
+}
+
+#bootstrapOverride .aboutListItems {
+    color: var(--grn);
+}
+
+#bootstrapOverride .contactText {
+    margin-top: 3em;
+    text-decoration: none;
+    color: var(--grn);
+    text-align: center;
+}
+
+#bootstrapOverride .bi {
+    text-align: center;
+}
+
+#bootstrapOverride #contactPageTitle {
+    text-align: center;
+    color: var(--grn) !important;
+    font-size: 50px !important;
+    text-shadow: 3px 3px var(--pnk);
 }

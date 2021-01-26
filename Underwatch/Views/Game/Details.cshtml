@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2 class="text-success">Details</h2>
+<h2 id="pageTitles">Game Details</h2>
 
 <div>
     <hr />
@@ -60,7 +60,7 @@
 
     </table>
 </div>
-<p>
+<p class="lowerLinks" style="font-size: 30px">
     @Html.ActionLink("Edit", "Edit", new { id = Model.GameId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
