@@ -47,12 +47,17 @@ namespace Underwatch.Controllers
             var service = CreateFavoritesService();
             service.DropDownCreate(viewModel);
 
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            service = new FavoritesService(userId);
+            //service.CreateFavorites(viewModel);
 
-            service.CreateFavorites(viewModel);
+            if (service.CreateFavorites(viewModel))
+            {
+                TempData["SaveResult"] = "Your Underwatch was created!";
+                return RedirectToAction("Index");
+            }
 
-            return RedirectToAction("Index");
+            ModelState.AddModelError("", "Something went wrong! The Underwatch couldn't be created.");
+
+            return View(viewModel);
         }
 
         // Get: FavoritesList/Details/{id}
@@ -98,11 +103,11 @@ namespace Underwatch.Controllers
 
             if (service.UpdateFavorites(model))
             {
-                TempData["SaveResult"] = "Your Favorites was updated!";
+                TempData["SaveResult"] = "The Underwatch was updated!";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Your Favorites could not be updated because something went Whoopsie-Doodle!");
+            ModelState.AddModelError("", "The Underwatch could not be updated because something went Whoopsie-Doodle!");
             return View(model);
         }
 
@@ -124,7 +129,7 @@ namespace Underwatch.Controllers
             var service = CreateFavoritesService();
             service.DeleteFavorite(id);
 
-            TempData["SaveResult"] = "A Favorite was successfully deleted!";
+            TempData["SaveResult"] = "An Underwatch was successfully deleted!";
 
             return RedirectToAction("Index");
         }

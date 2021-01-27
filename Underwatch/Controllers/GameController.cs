@@ -23,11 +23,6 @@ namespace Underwatch.Controllers
             var model = service.GetGames();
 
             return View(model);
-
-            //This is from the GeneralStoreMVC guide
-            //List<Game> gameList = _db.Games.ToList();
-            //List<Game> orderedGameList = gameList.OrderBy(game => game.Title).ToList();
-            //return View(orderedGameList);
         }
 
         // Get: Game/Create
@@ -50,16 +45,16 @@ namespace Underwatch.Controllers
 
             if (service.CreateGame(model))
             {
-                TempData["SaveResult"] = "Your game was created!";
+                TempData["SaveResult"] = "Your Game was created!";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Something went wrong! The game couldn't be made.");
+            ModelState.AddModelError("", "Something went wrong! The Game couldn't be created.");
 
             return View(model);
         }
 
-        // Get: Game/Details
+        // Get: Game/Details/{id}
         public ActionResult Details(int id)
         {
             var service = CreateGameService();
@@ -88,7 +83,7 @@ namespace Underwatch.Controllers
             return View(model);
         }
 
-        // Post: Game/Edit
+        // Post: Game/Edit/{id}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, GameEdit model)
@@ -108,7 +103,7 @@ namespace Underwatch.Controllers
 
             if (service.UpdateGame(model))
             {
-                TempData["SaveResult"] = "Your game was updated.";
+                TempData["SaveResult"] = "Your Game was updated!";
                 return RedirectToAction("Index");
             }
 
@@ -116,7 +111,7 @@ namespace Underwatch.Controllers
             return View(model);
         }
 
-        // Get: Game/Delete
+        // Get: Game/Delete/{id}
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
@@ -126,7 +121,7 @@ namespace Underwatch.Controllers
             return View(model);
         }
 
-        // Post: Game/Delete
+        // Post: Game/Delete/{id}
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -136,7 +131,7 @@ namespace Underwatch.Controllers
 
             service.DeleteGame(id);
 
-            TempData["SaveResult"] = "Your game was deleted";
+            TempData["SaveResult"] = "Your Game was deleted!";
 
             return RedirectToAction("Index");
         }

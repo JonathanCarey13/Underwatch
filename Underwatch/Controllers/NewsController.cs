@@ -47,12 +47,15 @@ namespace Underwatch.Controllers
             var service = CreateNewsService();
             service.DropDownCreate(viewModel);
 
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            service = new NewsService(userId);
+            if (service.CreateNews(viewModel))
+            {
+                TempData["SaveResult"] = "Your News was created!";
+                return RedirectToAction("Index");
+            }
 
-            service.CreateNews(viewModel);
+            ModelState.AddModelError("", "Something went wrong! The News couldn't be created.");
 
-            return RedirectToAction("Index");
+            return View(viewModel);
         }
 
         // Get: News/Details/{id}
@@ -109,7 +112,7 @@ namespace Underwatch.Controllers
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Your news could not be updated.");
+            ModelState.AddModelError("", "Your News could not be updated.");
             return View(model);
         }
 
@@ -131,7 +134,7 @@ namespace Underwatch.Controllers
             var service = CreateNewsService();
             service.DeleteNews(id);
 
-            TempData["SaveResult"] = "Your news was deleted";
+            TempData["SaveResult"] = "Your News was deleted";
 
             return RedirectToAction("Index");
         }
