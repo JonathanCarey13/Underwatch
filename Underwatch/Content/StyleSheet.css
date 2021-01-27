@@ -5,11 +5,8 @@
     --pnk: #E501BD;
 }
 
-body {
-    padding: 0 !important;
-    margin: 0;
-    max-width: 100vw;
-    max-height: 100vh;
+#backgroundFix {
+    background-color: var(--lgtgrey) !important;
 }
 
     body #bootstrapOverride {

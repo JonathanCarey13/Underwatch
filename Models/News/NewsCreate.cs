@@ -28,7 +28,8 @@ namespace Models.News
         public bool IsDLC { get; set; }
         [Display(Name = "Free Content Update")]
         public bool IsUpdate { get; set; }
-        [Display(Name = "Release Date mm/dd/yyyy")]
+        [Display(Name = "Release Date dd/mm/yyyy")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime UpdateReleaseDate { get; set; }
     }
 }

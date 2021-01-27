@@ -7,14 +7,16 @@
         <div class="col-xs-12 col-sm-12 col-md-9 col-xl-10">
             <h1 class="lead" id="jumbotronText">Welcome to Underwatch! <br /> All your game updates and news in one convienent place!</h1>
             <h1 class="btn btn-primary btn-lg" id="jumbotronText">@Html.ActionLink("About", "About", "Home") &raquo;</></h1>
-            @if (!User.Identity.IsAuthenticated)
-            {
-                <h1>Please register a new account or sign in!</h1>
-            }
+            
         </div>
     </div>
 </div>
-
+<div>
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <h1>Please register a new account or sign in!</h1>
+    }
+</div>
 @if (User.Identity.IsAuthenticated)
 {
     <div class="row indexBody">

@@ -26,6 +26,7 @@ namespace Models.News
         [MaxLength(300, ErrorMessage = "Whoa there partner! Lets trim down a few sentences shall we? Maybe under 300 characters?")]
         public string Description { get; set; }
         [Display(Name = "Release Date")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime UpdateReleaseDate { get; set; }
         [Display(Name = "Game")]
         public string Title { get; set; }

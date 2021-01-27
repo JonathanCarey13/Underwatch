@@ -27,6 +27,7 @@ namespace Models.News
         [Display(Name = "Free Content Update")]
         public bool IsUpdate { get; set; }
         [Display(Name = "Release Date mm/dd/yyyy")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime UpdateReleaseDate { get; set; }
     }
 }
