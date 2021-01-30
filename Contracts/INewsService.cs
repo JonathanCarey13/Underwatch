@@ -16,7 +16,5 @@ namespace Contracts
         bool DeleteNews(int newsId);
         void DropDownCreate(CreateNewsViewModel viewModel);
         void DropDownEdit(NewsEdit model);
-
-
     }
 }

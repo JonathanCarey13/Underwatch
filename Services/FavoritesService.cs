@@ -1,4 +1,5 @@
-﻿using Data;
+﻿using Contracts;
+using Data;
 using Models.FavoritesList;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,13 @@ using Underwatch.Data;
 
 namespace Services
 {
-    public class FavoritesService
+    public class FavoritesService : IFavoritesService
     {
         private readonly Guid _userId;
 
-        public FavoritesService(Guid userId)
+        public FavoritesService()
         {
-            _userId = userId;
+
         }
 
         public bool CreateFavorites(CreateFavoritesListViewModel viewModel)
@@ -59,7 +60,7 @@ namespace Services
             }
         }
 
-        public FavoritesDetails GetFavoritesById(int id)
+        public FavoritesDetails GetFavoriteById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {

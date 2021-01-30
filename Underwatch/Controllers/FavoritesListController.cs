@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using Contracts;
+using Microsoft.AspNet.Identity;
 using Models.FavoritesList;
 using Services;
 using System;
@@ -13,12 +14,17 @@ namespace Underwatch.Controllers
     [Authorize]
     public class FavoritesListController : Controller
     {
+        private readonly IFavoritesService _favoritesService;
+
+        public FavoritesListController(IFavoritesService favoritesService)
+        {
+            _favoritesService = favoritesService;
+        }
+
         // Get: FavoritesList/Index
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new FavoritesService(userId);
-            var model = service.GetFavorites();
+            var model = _favoritesService.GetFavorites();
 
             return View(model);
         }
@@ -27,9 +33,8 @@ namespace Underwatch.Controllers
         public ActionResult Create()
         {
             var viewModel = new CreateFavoritesListViewModel();
-            var service = CreateFavoritesService();
 
-            service.DropDownCreate(viewModel);
+            _favoritesService.DropDownCreate(viewModel);
 
             return View(viewModel);
         }
@@ -44,12 +49,9 @@ namespace Underwatch.Controllers
                 return View(viewModel);
             }
 
-            var service = CreateFavoritesService();
-            service.DropDownCreate(viewModel);
+            _favoritesService.DropDownCreate(viewModel);
 
-            //service.CreateFavorites(viewModel);
-
-            if (service.CreateFavorites(viewModel))
+            if (_favoritesService.CreateFavorites(viewModel))
             {
                 TempData["SaveResult"] = "Your Underwatch was created!";
                 return RedirectToAction("Index");
@@ -63,8 +65,7 @@ namespace Underwatch.Controllers
         // Get: FavoritesList/Details/{id}
         public ActionResult Details(int id)
         {
-            var service = CreateFavoritesService();
-            var model = service.GetFavoritesById(id);
+            var model = _favoritesService.GetFavoriteById(id);
 
             return View(model);
         }
@@ -72,13 +73,16 @@ namespace Underwatch.Controllers
         // Get: FavoritesList/Edit/{id}
         public ActionResult Edit(int id)
         {
-            var service = CreateFavoritesService();
-            service.GetFavoritesById(id);
+            var detail = _favoritesService.GetFavoriteById(id);
+            var model = new FavoritesEdit
+            {
+                ListId = detail.ListId,
+                NewsId = detail.NewsId,
+                GameId = detail.GameId,
+            };
 
-            var model = new FavoritesEdit();
             model.ListId = id;
-            service.DropDownEdit(model);
-
+            _favoritesService.DropDownEdit(model);
 
             return View(model);
         }
@@ -97,11 +101,10 @@ namespace Underwatch.Controllers
                 return View(model);
             }
 
-            var service = CreateFavoritesService();
             model.ListId = id;
-            service.DropDownEdit(model);
+            _favoritesService.DropDownEdit(model);
 
-            if (service.UpdateFavorites(model))
+            if (_favoritesService.UpdateFavorites(model))
             {
                 TempData["SaveResult"] = "The Underwatch was updated!";
                 return RedirectToAction("Index");
@@ -114,8 +117,7 @@ namespace Underwatch.Controllers
         // Get: FavoritesList/Delete/{id}
         public ActionResult Delete(int id)
         {
-            var service = CreateFavoritesService();
-            var model = service.GetFavoritesById(id);
+            var model = _favoritesService.GetFavoriteById(id);
 
             return View(model);
         }
@@ -126,20 +128,11 @@ namespace Underwatch.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteFavorite(int id)
         {
-            var service = CreateFavoritesService();
-            service.DeleteFavorite(id);
+            _favoritesService.DeleteFavorite(id);
 
             TempData["SaveResult"] = "An Underwatch was successfully deleted!";
 
             return RedirectToAction("Index");
-        }
-
-        // Service Method
-        private FavoritesService CreateFavoritesService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new FavoritesService(userId);
-            return service;
         }
     }
 }

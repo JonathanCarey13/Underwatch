@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using Contracts;
+using Microsoft.AspNet.Identity;
 using Models.News;
 using Services;
 using System;
@@ -13,12 +14,17 @@ namespace Underwatch.Controllers
     [Authorize]
     public class NewsController : Controller
     {
+        private readonly INewsService _newsService;
+
+        public NewsController(INewsService newsService)
+        {
+            _newsService = newsService;
+        }
+
         // Get: News/Index
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new NewsService(userId);
-            var model = service.GetNews();
+            var model = _newsService.GetNews();
 
             return View(model);
         }
@@ -27,9 +33,8 @@ namespace Underwatch.Controllers
         public ActionResult Create()
         {
             var viewModel = new CreateNewsViewModel();
-            var service = CreateNewsService();
 
-            service.DropDownCreate(viewModel);
+            _newsService.DropDownCreate(viewModel);
 
             return View(viewModel);
         }
@@ -44,10 +49,9 @@ namespace Underwatch.Controllers
                 return View(viewModel);
             }
 
-            var service = CreateNewsService();
-            service.DropDownCreate(viewModel);
+            _newsService.DropDownCreate(viewModel);
 
-            if (service.CreateNews(viewModel))
+            if (_newsService.CreateNews(viewModel))
             {
                 TempData["SaveResult"] = "Your News was created!";
                 return RedirectToAction("Index");
@@ -61,8 +65,7 @@ namespace Underwatch.Controllers
         // Get: News/Details/{id}
         public ActionResult Details(int id)
         {
-            var service = CreateNewsService();
-            var model = service.GetNewsById(id);
+            var model = _newsService.GetNewsById(id);
 
             return View(model);
         }
@@ -70,11 +73,11 @@ namespace Underwatch.Controllers
         // Get: News/Edit/{id}
         public ActionResult Edit(int id)
         {
-            var service = CreateNewsService();
-            var detail = service.GetNewsById(id);
+            var detail = _newsService.GetNewsById(id);
             var model = new NewsEdit
             {
                 NewsId = detail.NewsId,
+                GameId = detail.GameId,
                 UpdateTitle = detail.UpdateTitle,
                 Description = detail.Description,
                 IsDLC = detail.IsDLC,
@@ -83,7 +86,7 @@ namespace Underwatch.Controllers
             };
 
             model.NewsId = id;
-            service.DropDownEdit(model);
+            _newsService.DropDownEdit(model);
 
             return View(model);
         }
@@ -102,11 +105,10 @@ namespace Underwatch.Controllers
                 return View(model);
             }
 
-            var service = CreateNewsService();
             model.NewsId = id;
-            service.DropDownEdit(model);
+            _newsService.DropDownEdit(model);
 
-            if (service.UpdateNews(model))
+            if (_newsService.UpdateNews(model))
             {
                 TempData["SaveResult"] = "Your News was updated!";
                 return RedirectToAction("Index");
@@ -119,8 +121,7 @@ namespace Underwatch.Controllers
         // Get: News/Delete/{id}
         public ActionResult Delete(int id)
         {
-            var service = CreateNewsService();
-            var model = service.GetNewsById(id);
+            var model = _newsService.GetNewsById(id);
 
             return View(model);
         }
@@ -131,20 +132,11 @@ namespace Underwatch.Controllers
         [ActionName("Delete")]
         public ActionResult DeletePost(int id)
         {
-            var service = CreateNewsService();
-            service.DeleteNews(id);
+            _newsService.DeleteNews(id);
 
             TempData["SaveResult"] = "Your News was deleted";
 
             return RedirectToAction("Index");
-        }
-
-        // Service Method
-        private NewsService CreateNewsService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new NewsService(userId);
-            return service;
         }
     }
 }

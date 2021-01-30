@@ -1,4 +1,5 @@
-﻿using Data;
+﻿using Contracts;
+using Data;
 using Models.News;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,13 @@ using Underwatch.Data;
 
 namespace Services
 {
-    public class NewsService
+    public class NewsService : INewsService
     {
         private readonly Guid _userId;
 
-        public NewsService(Guid userId)
+        public NewsService()
         {
-            _userId = userId;
+            
         }
 
         public bool CreateNews(CreateNewsViewModel viewModel)

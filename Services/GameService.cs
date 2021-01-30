@@ -1,4 +1,5 @@
-﻿using Data;
+﻿using Contracts;
+using Data;
 using Models;
 using Models.Game;
 using System;
@@ -10,13 +11,13 @@ using Underwatch.Data;
 
 namespace Services
 {
-    public class GameService
+    public class GameService : IGameService
     {
         private readonly Guid _userId;
 
-        public GameService(Guid userId)
+        public GameService()
         {
-            _userId = userId;
+
         }
 
         public bool CreateGame(GameCreate model)
@@ -110,7 +111,6 @@ namespace Services
 
                 return ctx.SaveChanges() == 1;
             }
-
         }
 
         public bool DeleteGame(int gameId)
@@ -126,7 +126,6 @@ namespace Services
 
                 return ctx.SaveChanges() == 1;
             }
-
         }
     }
 }

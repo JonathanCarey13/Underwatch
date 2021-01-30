@@ -1,4 +1,5 @@
-﻿using Data;
+﻿using Contracts;
+using Data;
 using Microsoft.AspNet.Identity;
 using Models;
 using Models.Game;
@@ -15,12 +16,17 @@ namespace Underwatch.Controllers
     [Authorize]
     public class GameController : Controller
     {
+        private readonly IGameService _gameService;
+
+        public GameController(IGameService gameService)
+        {
+            _gameService = gameService;
+        }
+
         // Get: Game/Index
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new GameService(userId);
-            var model = service.GetGames();
+            var model = _gameService.GetGames();
 
             return View(model);
         }
@@ -41,9 +47,7 @@ namespace Underwatch.Controllers
                 return View(model);
             }
 
-            var service = CreateGameService();
-
-            if (service.CreateGame(model))
+            if (_gameService.CreateGame(model))
             {
                 TempData["SaveResult"] = "Your Game was created!";
                 return RedirectToAction("Index");
@@ -57,8 +61,7 @@ namespace Underwatch.Controllers
         // Get: Game/Details/{id}
         public ActionResult Details(int id)
         {
-            var service = CreateGameService();
-            var model = service.GetGameById(id);
+            var model = _gameService.GetGameById(id);
 
             return View(model);
         }
@@ -66,8 +69,7 @@ namespace Underwatch.Controllers
         // Get: Game/Edit/{id}
         public ActionResult Edit(int id)
         {
-            var service = CreateGameService();
-            var detail = service.GetGameById(id);
+            var detail = _gameService.GetGameById(id);
             var model =
                 new GameEdit
                 {
@@ -99,9 +101,7 @@ namespace Underwatch.Controllers
                 return View(model);
             }
 
-            var service = CreateGameService();
-
-            if (service.UpdateGame(model))
+            if (_gameService.UpdateGame(model))
             {
                 TempData["SaveResult"] = "Your Game was updated!";
                 return RedirectToAction("Index");
@@ -115,8 +115,7 @@ namespace Underwatch.Controllers
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            var service = CreateGameService();
-            var model = service.GetGameById(id);
+            var model = _gameService.GetGameById(id);
 
             return View(model);
         }
@@ -127,19 +126,11 @@ namespace Underwatch.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteGame(int id)
         {
-            var service = CreateGameService();
-
-            service.DeleteGame(id);
+            _gameService.DeleteGame(id);
 
             TempData["SaveResult"] = "Your Game was deleted!";
 
             return RedirectToAction("Index");
-        }
-        private GameService CreateGameService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new GameService(userId);
-            return service;
         }
     }
 }

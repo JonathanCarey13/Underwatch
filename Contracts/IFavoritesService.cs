@@ -11,11 +11,10 @@ namespace Contracts
     {
         bool CreateFavorites(CreateFavoritesListViewModel viewModel);
         IEnumerable<FavoritesListItem> GetFavorites();
-        FavoritesDetails GetFavoritesById(int id);
+        FavoritesDetails GetFavoriteById(int id);
         bool UpdateFavorites(FavoritesEdit model);
         bool DeleteFavorite(int listId);
         void DropDownCreate(CreateFavoritesListViewModel viewModel);
         void DropDownEdit(FavoritesEdit model);
-
     }
 }
